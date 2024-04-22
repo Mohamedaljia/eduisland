@@ -4,16 +4,16 @@ class reclamC
 {
     private ?int $idR = null;
     private ?int $idU = null;
-    private ?string $subject = null;
-    private ?string $description = null;
+    private ?string $subjectt = null;
+    private ?string $descriptionn = null;
     private ?string $feedback = null;
 
-    public function __construct($idR, $idU, $subject, $description, $feedback)
+    public function __construct($idR, $idU, $subjectt, $descriptionn, $feedback)
     {
         $this->idR = $idR;
         $this->idU = $idU;
-        $this->subject = $subject;
-        $this->description = $description;
+        $this->subjectt = $subjectt;
+        $this->descriptionn = $descriptionn;
         $this->feedback = $feedback;
     }
 
@@ -39,20 +39,20 @@ class reclamC
 
     public function getSubject(): ?string
     {
-        return $this->subject;
+        return $this->subjectt;
     }
 
-    public function setSubject(?string $subject): void
+    public function setSubject(?string $subjectt): void
     {
         $this->subject = $subject;
     }
 
-    public function getDescription(): ?string
+    public function getDescriptionn(): ?string
     {
-        return $this->description;
+        return $this->descriptionn;
     }
 
-    public function setDescription(?string $description): void
+    public function setDescriptionn(?string $description): void
     {
         $this->description = $description;
     }

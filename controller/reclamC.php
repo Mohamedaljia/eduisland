@@ -36,22 +36,43 @@ class reclamsC
 
     function addreclam($reclams)
     {
-        $sql = "INSERT INTO reclam  
-        VALUES (NULL, :idU,:subjectt, :descriptionn,:feedback)";
+        // Get the database connection
         $db = config::getConnexion();
+        
         try {
+            // Prepare the SQL query
+            $sql = "INSERT INTO reclam (idR,idU, subjectt, descriptionn, feedback) VALUES (:idR,:idU,:subjectt, :descriptionn,:feedback)";
             $query = $db->prepare($sql);
-            $query->execute([
-                'idR' => $reclams->getIdR(),
-                'subjectt' => $reclams->getSubject(),
-                'descriptionn' => $reclams->getDescription(),
-                'feedback' => $reclams->getFeedback(),
-            ]);
-        } catch (Exception $e) {
+            
+            // Bind parameters
+            $query->bindParam(':idR', $idR);
+            $query->bindParam(':idU', $idU);
+            $query->bindParam(':subjectt', $subjectt);
+            $query->bindParam(':descriptionn', $descriptionn);
+            $query->bindParam(':feedback', $feedback);
+            
+            // Set parameters from the object
+            $idR = $reclams->getIdR();
+            $idU = $reclams->getIdU();
+            $subjectt = $reclams->getSubject();
+            $descriptionn = $reclams->getDescriptionn();
+            $feedback = $reclams->getFeedback();
+            
+            
+            // Execute the query
+            $query->execute();
+            
+            // Optionally, you can check the number of affected rows
+            if ($query->rowCount() > 0) {
+                echo 'reclam added successfully';
+            } else {
+                echo 'Failed to add reclam';
+            }
+        } catch (PDOException $e) {
+            // Handle any exceptions
             echo 'Error: ' . $e->getMessage();
         }
     }
-
 
     function showreclam($idR)
     {
@@ -84,7 +105,7 @@ function updatereclam($reclams, $idR, $idU)
             'idR' => $idR,
             'idU' => $idU,
             'subjectt' => $reclams->getSubject(),
-            'descriptionn' => $reclams->getDescription(),
+            'descriptionn' => $reclams->getDescriptionn(),
             'feedback' => $reclams->getFeedback(),
         ]);
         
