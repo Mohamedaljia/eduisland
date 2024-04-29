@@ -83,12 +83,15 @@ if (
                     </td>
                 </tr>
                 <tr>
-                    <td><label for="langue">langue :</label></td>
-                    <td>
-                        <input type="text" id="langue" name="langue" value="<?php echo $exams['langue'] ?>" />
-                        <span id="erreurLangue" style="color: red"></span>
-                    </td>
-                </tr>
+                <td> <label for="langue">langue:</label></td>
+                <td>
+                <select id="langue" name="langue">
+            <option value="anglai">anglai</option>
+            <option value="francai">francai</option>
+            <option value="arabe">arabe</option>
+        </select><br>
+                </td>
+            </tr>
                 <tr>
                     <td><label for="nom">nom :</label></td>
                     <td>
@@ -112,11 +115,49 @@ if (
                     <input type="reset" value="Reset">
                 </td>
             </table>
+            
 
         </form>
+        <script>
+            document.getElementById("examsForm").addEventListener("submit", function(event) {
+                var id = document.getElementById("id").value.trim();
+                var nom = document.getElementById("nom").value.trim();
+                var typee = document.getElementById("typee").value.trim();
+                var langue = document.getElementById("langue").value.trim();
+                var niveau = document.getElementById("niveau").value.trim();
+
+                var errorDiv = document.getElementById("error");
+                errorDiv.innerHTML = "";
+
+                // Validation rules
+                if (!/^\d+$/.test(id)) {
+                    event.preventDefault();
+                    document.getElementById("erreurid").innerHTML = "ID must be a number.";
+                }
+
+                if (nom.length > 10) {
+                    event.preventDefault();
+                    document.getElementById("erreurNom").innerHTML = "Name must be less than or equal to 10 characters.";
+                }
+
+                if (typee.length > 5) {
+                    event.preventDefault();
+                    document.getElementById("erreurTypee").innerHTML = "Type must be less than or equal to 5 characters.";
+                }
+
+                if (langue !== "anglais" && langue !== "francais" && langue !== "arabe") {
+                    event.preventDefault();
+                    document.getElementById("erreurLangue").innerHTML = "Language must be 'anglais', 'francais', or 'arabe'.";
+                }
+
+                if (!/^[1-3]$/.test(niveau)) {
+                    event.preventDefault();
+                    document.getElementById("erreurNiveau").innerHTML = "Niveau must be a number between 1 and 3.";
+                }
+            });
+        </script>
     <?php
-    }
-    ?>
+    }    ?>
 </body>
 
 </html>

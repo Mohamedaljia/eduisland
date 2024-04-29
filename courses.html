@@ -32,6 +32,15 @@
 </head>
 
 <body>
+   
+    <img id="selectedImage" src="" alt="Selected image" style="max-width: 200px;">
+    <script>
+        // Fetch the image URL from the session variable and display it
+        document.addEventListener("DOMContentLoaded", function() {
+            var imageURL = '<?php echo isset($_SESSION["imageURL"]) ? $_SESSION["imageURL"] : ""; ?>';
+            document.getElementById("selectedImage").src = imageURL;
+        });
+    </script>
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -54,7 +63,7 @@
                 <a href="index.html" class="nav-item nav-link">Home</a>
                 <a href="about.html" class="nav-item nav-link">About</a>
                 <a href="courses.html" class="nav-item nav-link active">Courses</a>
-                <a href="exams.html" class="nav-item nav-link active">exams</a>
+                <a href="gestion.html" class="nav-item nav-link active">exams</a>
       
 
                 <div class="nav-item dropdown">

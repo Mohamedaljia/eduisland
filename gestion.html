@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,6 +33,9 @@
 </head>
 
 <body>
+  
+
+    
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -103,6 +107,7 @@
                 <h6 class="section-title bg-white text-center text-primary px-3">Categories</h6>
                 <h1 class="mb-5">Exams Categories</h1>
             </div>
+            
             <div class="row g-3">
                 <div class="col-lg-7 col-md-6">
                     <div class="row g-3">
@@ -112,6 +117,8 @@
                                 
                             </a>
                         </div>
+                        <!-- Add this code where you want to display the image -->
+
                         <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
                             <a class="position-relative d-block overflow-hidden" href="">
                                 <img class="img-fluid" src="img/prot.png" alt="">
@@ -124,6 +131,58 @@
                                
                             </a>
                         </div>
+                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                                <img src="view/uploads/" alt="Uploaded Image">
+
+
+                               
+                            </a>
+                        </div>
+                         <!-- Display Uploaded Images -->
+   <div class="gallery"></div>
+
+   <script>
+      window.onload = function() {
+    var gallery = document.querySelector('.gallery');
+    var directory = "view/uploads";
+    var fileExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+
+    function isImage(filename) {
+        var ext = filename.split('.').pop().toLowerCase();
+        return fileExtensions.indexOf(ext) !== -1;
+    }
+
+    fetch(directory)
+    .then(response => response.text())
+    .then(data => {
+        console.log("Fetched data:", data);
+        var parser = new DOMParser();
+        var html = parser.parseFromString(data, 'text/html');
+        console.log("Parsed HTML:", html);
+        var links = html.querySelectorAll('a'); 
+        console.log("Found links:", links);
+
+        links.forEach(function(link) {
+            var filename = link.getAttribute('href');
+            if (isImage(filename)) {
+                var img = document.createElement('img');
+                var imageUrl = directory + '/' + filename; // Concatenate directory and filename
+                console.log("Image URL:", imageUrl);
+                img.src = imageUrl;
+                img.alt = filename;
+                img.classList.add('img-fluid'); // Add Bootstrap class for responsive images
+                img.style.maxWidth = '100%'; // Set maximum width to 100%
+                img.style.height = 'auto'; // Allow the height to adjust automatically while maintaining aspect ratio
+                gallery.appendChild(img);
+            }
+        });
+    })
+    .catch(error => console.error('Error fetching images:', error));
+};
+
+
+   </script>
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
@@ -225,8 +284,33 @@
         </div>
     </div>
     <!-- Courses End -->
-
-
+   
+<!-- Display Uploaded Images -->
+<div class="container-xxl py-5 category">
+    <div class="container">
+        <div class="row g-3">
+            <!-- PHP Code to Display Uploaded Images -->
+            <?php
+            $directory = "view/uploads"; // Directory path
+            $images = glob($directory . "/*.{jpg,png,gif,jpeg}", GLOB_BRACE); // Get all image files from the directory
+            
+            if ($images) {
+                foreach ($images as $image) {
+                    echo '<div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">';
+                    echo '<a class="position-relative d-block overflow-hidden" href="#">';
+                    echo '<img src="' . $image . '" alt="Uploaded Image">';
+                    echo '</a>';
+                    echo '</div>';
+                }
+            } else {
+                echo "No images found in the directory: " . $directory;
+            }
+            ?>
+            
+            <!-- End of PHP Code -->
+        </div>
+    </div>
+</div>
     
         
 

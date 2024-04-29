@@ -1,48 +1,84 @@
 <?php
+// Enable error reporting to display PHP errors or warnings
 
 include '../Controller/ExamsC.php';
-
 include '../model/ExamsC.php';
-
 
 $error = "";
 
-// create client
+// create Exams
 $exams = null;
 
 // create an instance of the controller
-$exam = new ExamsC();
+$examsC = new ExamsC();
+
 if (
     isset($_POST["id"]) &&
     isset($_POST["nom"]) &&
     isset($_POST["typee"]) &&
     isset($_POST["langue"]) &&
-    isset($_POST["niveau"])
+    isset($_POST["niveau"]) &&
+    isset($_FILES["file"])  // Check if file is set in $_FILES
 ) {
-    echo "Form submitted!"; // Debugging message
+    echo "Form submitted!<br>"; // Debugging message
 
+    // Check if form data is set and not empty
     if (
         !empty($_POST['id']) &&
-        !empty($_POST["nom"]) &&
+        !empty($_POST['nom']) &&
         !empty($_POST["typee"]) &&
         !empty($_POST["langue"]) &&
-        !empty($_POST["niveau"])
+        !empty($_POST["niveau"]) &&
+        !empty($_FILES["file"]["name"]) // Check if file name is not empty
     ) {
-        echo "All fields filled!"; // Debugging message
+        echo "All fields filled!<br>"; // Debugging message
+        foreach ($_POST as $key => $value) {
+            echo "Key: $key, Value: $value<br>";
+        }
 
-        $exams = new Exams(
-            
-            $_POST['id'],
-            $_POST['nom'],
-            $_POST['typee'],
-            $_POST['langue'],
-            $_POST['niveau']
-        );
-        $exam->addExams($exams);
-        header('Location: listExams.php');
+        // Directory where uploaded files will be saved
+        $uploadDirectory = "uploads/";
+
+        // Create directory if it does not exist
+        if (!file_exists($uploadDirectory)) {
+            mkdir($uploadDirectory, 0777, true);
+        }
+
+        // Generate a unique name for the file
+        $fileName = uniqid() . '_' . $_FILES["file"]["name"];
+
+        // Move the file to the upload directory
+        $targetFilePath = $uploadDirectory . $fileName;
+        if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
+            echo "The file " . $fileName . " has been uploaded successfully.<br>";
+
+            // Create Exams object with the file path
+            $exams = new Exams(
+                $_POST['id'],
+                $_POST['nom'],
+                $_POST['typee'],
+                $_POST['langue'],
+                $_POST['niveau'],
+                $targetFilePath
+            );
+
+            try {
+                // Add Exams to database
+                $examsC->addExams($exams);
+
+                // Redirect to listExams.php after successful addition
+                header('Location: listExams.php');
+                exit(); // Ensure no further code execution after redirection
+            } catch (Exception $e) {
+                $error = "Error adding exam: " . $e->getMessage();
+                echo $error; // Display error message for debugging
+            }
+        } else {
+            echo "Sorry, there was an error uploading your file.<br>";
+        }
     } else {
         $error = "Missing information";
-        echo "Missing information!"; // Debugging message
+        echo "Missing information!<br>"; // Debugging message
     }
 }
 ?>
@@ -51,97 +87,264 @@ if (
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exams </title>
+    <title>Exams</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* Background styling */
+        .dashboard-container {
+            /* Removed background color */
+            padding: 20px;
+            border-right: 1px solid #dee2e6;
+        }
+        .dashboard-container h2 {
+            color: #007bff; /* Changed text color to match EDUISLAND */
+        }
+        .dashboard-btn {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .dashboard-btn a {
+            display: block;
+            padding: 10px 20px;
+            background-color: #ffffff; /* Changed button color to match EDUISLAND */
+            color: #27abb4e5;
+            border-radius: 5px;
+            text-align: left;
+            transition: background-color 0.3s ease;
+        }
+        .dashboard-btn a:hover {
+            background-color: #0056b3;
+        }
+        body {
+            background-color: #dee2e6; /* Blue cyan background */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Form container */
+        .form-container {
+            background-color: #ffffff; /* White background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Shadow effect */
+            text-align: center;
+        }
+
+        /* Form styling */
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        form table {
+            width: 100%;
+        }
+
+        form table tr {
+            margin-bottom: 10px;
+        }
+
+        form table td {
+            padding: 5px;
+        }
+
+        form table td input[type="text"],
+        form table td select,
+        form table td input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        form table td input[type="submit"],
+        form table td input[type="reset"] {
+            padding: 10px 20px;
+            background-color: #2196F3; /* Blue button color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        form table td input[type="submit"]:hover,
+        form table td input[type="reset"]:hover {
+            background-color: #0b7dda; /* Darker blue on hover */
+        }
+
+        /* Error message styling */
+        #error {
+            color: #ff0000; /* Red */
+            margin-bottom: 10px;
+        }
+
+        /* Logo styling */
+        .logo {
+            max-width: 150px;
+            margin-bottom: 10px;
+        }
+
+        /* Name styling */
+        .name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-    <a href="listExams.php">Back to list</a>
-    <hr>
-
-    <div id="error"></div>
-
-    <form action="" method="POST" id="examsForm">
-        <table>
-            <tr>
-                <td><label for="id">Id:</label></td>
-                <td>
-                    <input type="text" id="id" name="id" />
-                    <span id="erreurid" style="color: red"></span>
-                </td>
-            </tr>
-            <tr>
-                <td><label for="nom">Name:</label></td>
-                <td>
-                    <input type="text" id="nom" name="nom" />
-                    <span id="erreurNom" style="color: red"></span>
-                </td>
-            </tr>
-            <tr>
-                <td><label for="typee">Type:</label></td>
-                <td>
-                    <input type="text" id="typee" name="typee" />
-                    <span id="erreurTypee" style="color: red"></span>
-                </td>
-            </tr>
-            <tr>
-                <td><label for="langue">Langue:</label></td>
-                <td>
-                    <input type="text" id="langue" name="langue" />
-                    <span id="erreurLangue" style="color: red"></span>
-                </td>
-            </tr>
-            <tr>
-                <td><label for="niveau">Niveau:</label></td>
-                <td>
-                    <input type="text" id="niveau" name="niveau" />
-                    <span id="erreurNiveau" style="color: red"></span>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <input type="submit" value="Save">
-                    <input type="reset" value="Reset">
-                </td>
-            </tr>
-        </table>
-    </form>
+    
+   
+    <div class="form-container">
+        <img src="path_to_your_logo.png" alt="EduIsland Logo" class="logo">
+        <div class="name">EDUISLAND</div>
+        <form action="" method="POST" id="examsForm" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td><label for="id">Id:</label></td>
+                    <td>
+                        <input type="text" id="id" name="id" />
+                        <span id="erreurid" style="color: red"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="nom">Subject:</label></td>
+                    <td>
+                        <input type="text" id="nom" name="nom" />
+                        <span id="erreurNom" style="color: red"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="typee">Type:</label></td>
+                    <td>
+                        <input type="text" id="typee" name="typee" />
+                        <span id="erreurTypee" style="color: red"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="langue">Langue:</label></td>
+                    <td>
+                        <select id="langue" name="langue">
+                            <option value="anglais">anglais</option>
+                            <option value="francais">francais</option>
+                            <option value="arabe">arabe</option>
+                        </select>
+                        <span id="erreurLangue" style="color: red"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="niveau">Niveau:</label></td>
+                    <td>
+                        <input type="text" id="niveau" name="niveau" />
+                        <span id="erreurNiveau" style="color: red"></span>
+                    </td>
+                </tr>
+               
+                <tr>
+                    <td><label for="file">Image:</label></td>
+                    <td>
+                        <input type="file" id="file" name="file" accept="image/*" />
+                    </td>
+                    <td><?php echo isset($exams['image_path']) ? $exams['image_path'] : 'No image path provided'; ?></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Save">
+                        <input type="reset" value="Reset">
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <div id="error"></div>
+    </div>
 
     <script>
-        document.getElementById("examsForm").addEventListener("submit", function(event) {
-            var id = document.getElementById("id").value.trim();
-            var nom = document.getElementById("nom").value.trim();
-            var typee = document.getElementById("typee").value.trim();
-            var langue = document.getElementById("langue").value.trim();
-            var niveau = document.getElementById("niveau").value.trim();
+    document.getElementById("examsForm").addEventListener("submit", function(event) {
+        var id = document.getElementById("id").value.trim();
+        var nom = document.getElementById("nom").value.trim();
+        var typee = document.getElementById("typee").value.trim();
+        var langue = document.getElementById("langue").value.trim();
+        var niveau = document.getElementById("niveau").value.trim();
 
-            var errorDiv = document.getElementById("error");
-            errorDiv.innerHTML = "";
+        var errorDiv = document.getElementById("error");
+        errorDiv.innerHTML = "";
 
-            // Validation rules
-            if (!/^\d+$/.test(id)) {
-                event.preventDefault();
-                document.getElementById("erreurid").innerHTML = "ID must be a number.";
-            }
+        // Validation rules
+        var idRegex = /^\d+$/; // Only digits
+        var nomRegex = /^[a-zA-Z\s]{1,50}$/; // Letters and spaces, up to 50 characters
+        var typeeRegex = /^[a-zA-Z\s]{1,10}$/; // Letters and spaces, up to 10 characters
+        var niveauRegex = /^[1-3]$/; // Only 1, 2, or 3
 
-            if (nom.length > 10) {
-                event.preventDefault();
-                document.getElementById("erreurNom").innerHTML = "Name must be less than or equal to 10 characters.";
-            }
+        // ID validation
+        if (!idRegex.test(id)) {
+            event.preventDefault();
+            errorDiv.innerHTML = "ID must contain only numbers.";
+            return;
+        }
 
-            if (typee.length > 5) {
-                event.preventDefault();
-                document.getElementById("erreurTypee").innerHTML = "Type must be less than or equal to 5 characters.";
-            }
+        // Nom validation
+        if (!nomRegex.test(nom)) {
+            event.preventDefault();
+            errorDiv.innerHTML = "Subject must contain letters only and be at most 50 characters long.";
+            return;
+        }
 
-            if (langue !== "anglais" && langue !== "francais" && langue !== "arabe") {
-                event.preventDefault();
-                document.getElementById("erreurLangue").innerHTML = "Language must be 'anglais', 'francais', or 'arabe'.";
-            }
+        // Typee validation
+        if (!typeeRegex.test(typee)) {
+            event.preventDefault();
+            errorDiv.innerHTML = "Type must contain letters only and be at most 10 characters long.";
+            return;
+        }
 
-            if (!/^[1-3]$/.test(niveau)) {
-                event.preventDefault();
-                document.getElementById("erreurNiveau").innerHTML = "Niveau must be a number between 1 and 3.";
-            }
-        });
-    </script>
+        // Niveau validation
+        if (!niveauRegex.test(niveau)) {
+            event.preventDefault();
+            errorDiv.innerHTML = "Level must be 1, 2, or 3.";
+            return;
+        }
+
+        // File validation
+        var fileInput = document.getElementById('file');
+        var file = fileInput.files[0];
+        if (!file) {
+            event.preventDefault();
+            errorDiv.innerHTML = "Please select an image file.";
+            return;
+        }
+    });
+</script>
 </body>
 </html>

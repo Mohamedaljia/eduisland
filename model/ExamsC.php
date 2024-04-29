@@ -8,16 +8,18 @@ class Exams
     private ?string $type = null;
     private ?string $langue = null;
     private ?int $niveau = null;
+    private ?string $file = null;
 
 
 
-    public function __construct($id, $nom, $type, $langue,$niveau)
+    public function __construct($id, $nom, $type, $langue,$niveau,$file)
     {    $this->id = $id;
        
         $this->nom = $nom;
         $this->type = $type;
         $this->langue = $langue;
         $this->niveau = (int)$niveau;
+        $this->file = $file;
     }
     public function getId()
     {
@@ -62,6 +64,16 @@ class Exams
     public function setNiveau($niveau)
     {
         $this->niveau = $niveau;
+        return $this;
+    }
+    public function getfile()
+    {
+        return $this->file;
+    }
+
+    public function setfile($file)
+    {
+        $this->file = $file;
         return $this;
     }
 }
