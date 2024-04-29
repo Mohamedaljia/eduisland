@@ -74,44 +74,39 @@
 </nav>
 <!-- Navbar End -->
 
-<a href="forum.php" class="add-reclam-link">Add Reclamation</a>
+<a href="reponseF.php" class="add-reclam-link">Add Reponse</a>
 
+  
 <table class="table" align="center">
     <thead>
         <tr>
-            <th>IdR</th>
-            <th>IdU</th>
-            <th>Subject</th>
+            <th>IdRP</th>
             <th>Description</th>
-            <th>Feedback</th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
         <?php 
-        include '../controller/reclamC.php';
-        $c = new reclamsC();
-        $tab = $c->listreclam();
-        foreach ($tab as $reclam) : ?>
+        include '../controller/reponseC.php';
+
+        $c = new ReponsesC();
+        $tab = $c->afficheRep();
+        foreach ($tab as $reponse) : ?>
             <tr>
-                <td><?= $reclam['idR']; ?></td>
-                <td><?= $reclam['idU']; ?></td>
-                <td><?= $reclam['subjectt']; ?></td>
-                <td><?= $reclam['descriptionn']; ?></td>
-                <td><?= $reclam['feedback']; ?></td>
+                <td><?= $reponse['idRP']; ?></td>
+                <td><?= $reponse['descP']; ?></td>
                 <td>
-                    <a href="deletreclam.php?id=<?= $reclam['idR']; ?>">Delete</a>
+                    <a href="deleterep.php?id=<?= $reponse['idRP']; ?>">Delete</a>
                 </td>
-                <td>
-                    <a href="reponseF.php?id=<?= $reclam['idR']; ?>">Traiter</a>
-                </td>
+                <td>    </td>
+             
+                
             </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
 
 <center style="margin-top: 20px;">
-    <form method="POST" action="updatereclam.php">
+    <form method="POST" action="updatereponse.php">
         <input type="submit" name="update" value="Update">
     </form>
 </center>

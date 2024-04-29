@@ -32,8 +32,6 @@ class reclamsC
             die('Error:' . $e->getMessage());
         }
     }
-
-
     function addreclam($reclams)
     {
         // Get the database connection

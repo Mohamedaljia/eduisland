@@ -13,6 +13,53 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $reclams = $repC->afficheReclam($idRP); // Fetch reclams based on selected idRP
     }
 }
+
+//ajouter d'une reponse
+
+$error = "";
+
+// create client
+$reponses = null;
+
+// create an instance of the controller
+$reponseC = new ReponsesC();
+if (
+    isset($_POST["idRP"]) &&
+    isset($_POST["descP"])
+ 
+) {
+    //echo "Form submitted!"; // Debugging message
+
+    if (
+        !empty($_POST['idRP']) &&
+        !empty($_POST["descP"]) 
+    ) {
+       // echo "All fields filled!"; // Debugging message
+        foreach ($_POST as $key => $value) {
+           // echo "Key: $key, Value: $value<br>";
+        }
+
+        $reponses = new reponseC(
+            
+            $_POST['idRP'],
+            $_POST['descP']
+        );
+        try {
+            // Add Exams to database
+            $reponseC->addreponse($reponses);
+            header('Location: reponseF.php');
+            exit(); // Ensure no further code execution after redirection
+        } catch (Exception $e) {
+            $error = "Error adding reclam: " . $e->getMessage();
+           // echo $error; // Display error message for debugging
+        }
+    } else {
+        $error = "Missing information";
+        echo "Missing information!<br>"; // Debugging message
+    }
+
+}
+// fin d'ajout de reponse 
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +73,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <style>
-        /* Custom Styles */
+    /* Custom Styles */
+    .footer-links {
+        margin-top: 50px;
+    }
+
+    .footer-links a {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: #333;
+    }
+
+    .error {
+        color: red;
+    }
     </style>
 </head>
 
@@ -56,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <a href="../gestion.html" class="nav-link">Exams</a>
                     </li>
                     <li class="nav-item">
-                        <a href="../forum.php" class="nav-link">Reclamation</a>
+                        <a href="forum.php" class="nav-link">Reclamation</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
@@ -75,9 +136,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </nav>
     <!-- Navbar End -->
+    <div class="container">
+        <h1>Traiter les reclamtion</h1>
+        <form id="reponseForm" method="POST">
+            <div class="mb-3">
+                <label for="reponseId" class="form-label">reponse ID</label>
+                <input type="text" class="form-control" id="idRP" name="idRP">
+                <span class="error" id="erreuridRP"></span>
+            </div>
+          
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="descP" name="descP" rows="3"></textarea>
+                <span class="error" id="erreurdescP"></span>
+            </div>
+            <input type="submit" value="Save">
+        </form>
+    </div>
 
     <div class="container mt-5">
-    <a href="listreclam.php" class="">Back to list</a>
+    <a href="listeReponse.php" class="">liste de reponse</a>
         <h1 class="mb-4">Recherche de réclamation par réponse !</h1>
         <form action="" method="POST">
             <div class="mb-3">
@@ -103,6 +181,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <th>ID Réclamation</th>
                                 <th>ID Utilisateur</th>
                                 <th>Sujet</th>
+                                <th>Description</th>
                                 <th>Feedback</th>
                             </tr>
                         </thead>
@@ -112,6 +191,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <td><?= $reclam['idR'] ?></td>
                                     <td><?= $reclam['idU'] ?></td>
                                     <td><?= $reclam['subjectt'] ?></td>
+                                    <td><?= $reclam['descriptionn'] ?></td>
                                     <td><?= $reclam['feedback'] ?></td>
                                 </tr>
                             <?php } ?>
@@ -125,6 +205,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
+
+
+    <script>
+        document.getElementById('reponseForm').addEventListener('submit', function(event) {
+            var idRP = document.getElementById('idRP').value.trim();
+            var descP = document.getElementById('descP').value.trim();
+
+            // Clear previous error messages
+            document.getElementById("erreuridRP").innerHTML = '';
+            document.getElementById("erreurdescP").innerHTML = '';
+
+            // Regular expressions for validation
+            var idRPRegex = /^\d+$/;
+            var descPRegex = /^.{1,500}$/;
+
+            // Validation for idRP
+            if (!/^\d+$/.test(idRP)) {
+                event.preventDefault();
+                document.getElementById("erreuridRP").innerHTML = "ID must be a number.";
+            }
+
+            // Validation for descP length
+            if (!descPRegex.test(descP)) {
+            event.preventDefault();
+            document.getElementById("erreurdescP").innerHTML = "Description must have between 1 and 500 characters";
+        }
+        });
+    </script>
+
+    
 </body>
 
 </html>

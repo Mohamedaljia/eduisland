@@ -7,7 +7,7 @@ class reponseC
 
     public function __construct($idRP, $descP)
     {
-        $this->idR = $idRP;
+        $this->idRP = $idRP;
         $this->descP = $descP;
     }
 
@@ -16,13 +16,13 @@ class reponseC
         return $this->idRP;
     }
 
-    public function setIdR(?int $idRP): void
+    public function setIdRP(?int $idRP): void
     {
         $this->idRP = $idRP;
     }
     public function getDescP(): ?string
     {
-        return $this->descrP;
+        return $this->descP;
     }
 
     public function setDescP(?string $descP): void
