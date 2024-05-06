@@ -62,16 +62,19 @@ if (
 // fin d'ajout de reponse 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <title>Recherche des réclamations</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    
+	<!-- My CSS -->
+	<link rel="stylesheet" href="asset/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
     /* Custom Styles */
     .footer-links {
@@ -86,127 +89,208 @@ if (
     }
 
     .error {
-        color: red;
+        color: #B22323;
     }
     </style>
 </head>
-
 <body>
+<div id="overlay"></div>
 
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <div class="container">
-            <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-                <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>EDUISLAND</h2>
-            </a>
-            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav ms-auto p-4 p-lg-0">
-                    <li class="nav-item">
-                        <a href="../index.html" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../about.html" class="nav-link">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../courses.html" class="nav-link">Courses</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../gestion.html" class="nav-link">Exams</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="forum.php" class="nav-link">Reclamation</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu fade-down m-0">
-                            <a href="../team.html" class="dropdown-item">Our Team</a>
-                            <a href="../testimonial.html" class="dropdown-item">Testimonial</a>
-                            <a href="../404.html" class="dropdown-item">404 Page</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../contact.html" class="nav-link">Contact</a>
-                    </li>
-                </ul>
-                <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
-            </div>
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+    <a href="forum.php" class="brand">
+      <!-- <img src="asset/img/icon.png" alt="AzulTunes Logo" class="logo">-->
+      <span class="text"><i class="fa fa-book me-3"></i>EDUISLAND</span>
+    </a>
+
+		<ul class="side-menu top">
+            <li class="active">
+                <a href="test.php">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-user'></i>
+                    <span class="text">Users</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-pie-chart-alt-2'></i>
+                    <span class="text">Forum</span>
+                </a>
+            </li>
+            <li>
+                <a href="add-collab.php">
+                    <i class='bx bxs-group'></i>
+                    <span class="text">Collaborators</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-bar-chart-alt-2'></i>
+                    <span class="text">Deals</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-calendar-event'></i>
+                    <span class="text">Events</span>
+                </a>
+            </li>
+            <li>
+                <a href="listreclam.php">
+                    <i class='bx bxs-megaphone'></i>
+                    <span class="text">Reclamation</span>
+                </a>
+            </li>
+        </ul>
+<ul class="side-menu">
+    <li>
+        <a href="#">
+            <i class='bx bxs-cog'></i>
+            <span class="text">Settings</span>
+        </a>
+    </li>
+    <li>
+        <a href="#" class="logout">
+            <i class='bx bxs-log-out-circle'></i>
+            <span class="text">Logout</span>
+        </a>
+    </li>
+</ul>
+
+	</section>
+	<!-- SIDEBAR -->
+
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+	
+			<form action="#">
+			
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<a href="#" class="notification">
+				<i class='bx bxs-bell' ></i>
+				<span class="num">8</span>
+			</a>
+			<a href="#" class="profile">
+				<img src="asset/img/ena">
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+
+	<!-- MAIN -->
+    <main style="text-align: center;">
+    <div class="head-title">
+        <div class="left" style="color: #3C7AE9;">
+            <h1>Traiter</h1>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#" >Add Reponses </a>
+                </li>
+                <li><i class='bx bx-chevron-right' ></i></li>
+                <li>
+                    <a class="active" href="#" style="color: #3C7AE9;">Home</a>
+                </li>
+            </ul>
         </div>
-    </nav>
-    <!-- Navbar End -->
-    <div class="container">
-        <h1>Traiter les reclamtion</h1>
-        <form id="reponseForm" method="POST">
-            <div class="mb-3">
-                <label for="reponseId" class="form-label">reponse ID</label>
-                <input type="text" class="form-control" id="idRP" name="idRP">
-                <span class="error" id="erreuridRP"></span>
-            </div>
-          
-            <div class="mb-3">
-                <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" id="descP" name="descP" rows="3"></textarea>
-                <span class="error" id="erreurdescP"></span>
-            </div>
-            <input type="submit" value="Save">
-        </form>
+        <a href="listeReponse.php" class="btn-download">
+            <span class="text" >List of Reponses </span>
+        </a>
     </div>
 
-    <div class="container mt-5">
-    <a href="listeReponse.php" class="">liste de reponse</a>
-        <h1 class="mb-4">Recherche de réclamation par réponse !</h1>
-        <form action="" method="POST">
-            <div class="mb-3">
-                <label for="idRP" class="form-label">Sélectionnez un identifiant de réponse :</label>
-                <select name="idRP" id="idRP" class="form-select">
-                    <?php
-                    // Output the idRP options
-                    foreach ($idRPs as $idRP) {
-                        echo '<option value="' . $idRP . '">' . $idRP . '</option>';
-                    }
-                    ?>
-                </select>
+    <div class="table-data" style="margin: auto; width: 60%; text-align: left;">
+        <div class="container" style="margin: auto; width: 60%; text-align: left;">
+            <div class="head" style="color: #3C7AE9;">
+                <h3>Traiter les reclamtion</h3>
+                
+                <i class='bx bx-plus'></i>
+            <i class='bx bx-filter'></i>
             </div>
-            <input type="submit" value="Rechercher" name="search" class="btn btn-primary">
-        </form>
-        <?php if (isset($reclams)) { ?>
-            <div class="mt-5">
-                <h2>Réclamations correspondantes :</h2>
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>ID Réclamation</th>
-                                <th>ID Utilisateur</th>
-                                <th>Sujet</th>
-                                <th>Description</th>
-                                <th>Feedback</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($reclams as $reclam) { ?>
-                                <tr>
-                                    <td><?= $reclam['idR'] ?></td>
-                                    <td><?= $reclam['idU'] ?></td>
-                                    <td><?= $reclam['subjectt'] ?></td>
-                                    <td><?= $reclam['descriptionn'] ?></td>
-                                    <td><?= $reclam['feedback'] ?></td>
-                                </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
+            <form id="reponseForm" method="POST">
+                <div class="mb-3">
+                    <label for="reponseId" class="form-label" >reponse ID</label>
+                    <input type="text" class="form-control" id="idRP" name="idRP" style="margin-left: auto; margin-right: auto; display: block;">
+                    <span class="error" id="erreuridRP"></span>
                 </div>
-            </div>
-        <?php } ?>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label" >Description</label>
+                    <textarea class="form-control" id="descP" name="descP" rows="3" style="margin-left: auto; margin-right: auto; display: block;"></textarea>
+                    <span class="error" id="erreurdescP"></span>
+                </div>
+                <input type="submit" value="Save" style="display: block; margin: 20px auto 0; background-color: #3C7AE9; color: #fff; padding: 10px 20px; font-size: 1.2rem; border: none; border-radius: 5px;">
+            </form>
+        </div>
     </div>
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/main.js"></script>
+
+    <div class="todo" style="margin: auto; width: 80%; text-align: left;">
+        <div class="head" style="color: #3C7AE9;">
+            <h3>Search</h3>
+            <i class='bx bx-search'></i>
+                <i class='bx bx-filter'></i>
+        </div>
+        <div class="container mt-5" style="margin: auto; width: 80%; text-align: left;">
+            <h4 class="mb-4"style="color: #2B67D0;">Recherche de réclamation par réponse !</h4>
+            <form action="" method="POST">
+                <div class="mb-3">
+                    <label for="idRP" class="form-label" >Sélectionnez un identifiant de réponse :</label>
+                    <select name="idRP" id="idRP" class="form-select"  style="margin: auto; width: 5%;border: none; border-radius: 5px;">
+                        <?php
+                        // Output the idRP options
+                        foreach ($idRPs as $idRP) {
+                            echo '<option value="' . $idRP . '">' . $idRP . '</option>';
+                        }
+                        ?>
+                    </select>
+                </div>
+                <input type="submit" value="Rechercher" name="search" class="btn btn-primary" style="background-color: #3C7AE9; color: #fff; padding: 10px 20px; border: none; border-radius: 5px;">
+            </form>
+            <?php if (isset($reclams)) { ?>
+                <div class="mt-5">
+                    <h2 style="color: #2B67D0;">Réclamations correspondantes :</h2>
+                    <div class="table-responsive">
+                        <table class="table table-bordered" style="width: 100%;">
+                            <thead>
+                                <tr>
+                                <th style="color: #2B67D0; font-weight: normal;">ID Réclamation</th>
+                                <th style="color: #2B67D0; font-weight: normal;">ID Utilisateur</th>
+                                <th style="color: #2B67D0; font-weight: normal;">Sujet</th>
+                                <th style="color:#2B67D0; font-weight: normal;">Description</th>
+                                <th style="color: #2B67D0; font-weight: normal;">Feedback</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($reclams as $reclam) { ?>
+                                    <tr>
+                                        <td><?= $reclam['idR'] ?></td>
+                                        <td><?= $reclam['idU'] ?></td>
+                                        <td><?= $reclam['subjectt'] ?></td>
+                                        <td><?= $reclam['descriptionn'] ?></td>
+                                        <td><?= $reclam['feedback'] ?></td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+</main>
 
 
+	<!-- CONTENT -->
     <script>
         document.getElementById('reponseForm').addEventListener('submit', function(event) {
             var idRP = document.getElementById('idRP').value.trim();
@@ -234,7 +318,7 @@ if (
         });
     </script>
 
+	<script src="asset/java/script.js"></script>
     
 </body>
-
 </html>

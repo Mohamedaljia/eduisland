@@ -9,7 +9,7 @@ if(isset($_GET["id"])) {
     // Attempt to delete response
     try {
         $reponse->deletereponse($id);
-        header('Location:reponseF.php');
+        header('Location:listeReponse.php');
     } catch (PDOException $e) {
         // Handle any errors
         die('Error deleting response: ' . $e->getMessage());

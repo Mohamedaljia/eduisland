@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +25,7 @@
 
 		<ul class="side-menu top">
             <li class="active">
-                <a href="test.php">
+                <a href="#">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
                 </a>
@@ -109,76 +108,6 @@
 		</nav>
 		<!-- NAVBAR -->
 
-		<!-- MAIN -->
-		<main>
-			<div class="head-title">
-				<div class="left">
-					<h1>Reponses</h1>
-					<ul class="breadcrumb">
-						<li>
-							<a href="#">liste of Reponses</a>
-						</li>
-						<li><i class='bx bx-chevron-right' ></i></li>
-						<li>
-							<a class="active" href="test.php">Home</a>
-						</li>
-					</ul>
-				</div>
-                <a href="reponseF.php" class="btn-download">
-                    
-                    <span class="text">Add Reponses  </span>
-                </a>
-			</div>
-
-
-
-			<div class="table-data">
-    <div class="table-data order">
-        <div class="head">
-            <h3>List of Reponses</h3>
-        </div>
-       
-  
-<table class="table" align="center">
-    <thead>
-        <tr>
-            <th>IdRP</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php 
-        include '../controller/reponseC.php';
-
-        $c = new ReponsesC();
-        $tab = $c->afficheRep();
-        foreach ($tab as $reponse) : ?>
-            <tr>
-                <td><?= $reponse['idRP']; ?></td>
-                <td><?= $reponse['descP']; ?></td>
-                <td>
-                    <a href="deleterep.php?id=<?= $reponse['idRP']; ?>">Delete</a>
-                </td>
-                <td>    </td>
-             
-                
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
-
-    <center style="margin-top: 20px;">
-        <form method="POST" action="updatereponse.php">
-            <input type="submit" name="update" value="Update" style="display: block; margin: 20px auto 0; background-color: #007bff; color: #fff; padding: 10px 20px; font-size: 1.2rem; border: none; border-radius: 5px;">
-        </form>
-    </center>
-
-    </div>
-     </div>
-                                    
-			</div>
-		</main>
-		<!-- MAIN -->
 	</section>
 	<!-- CONTENT -->
 	

@@ -113,7 +113,17 @@ function updatereclam($reclams, $idR, $idU)
         echo "Error updating record: " . $e->getMessage();
     }
 }
-
+public function countReclamationsByType() {
+    $sql = "SELECT subjectt, COUNT(*) AS count FROM reclam GROUP BY subjectt";
+    $db = config::getConnexion();
+    try {
+        $query = $db->query($sql);
+        $reclamationsByType = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $reclamationsByType;
+    } catch (PDOException $e) {
+        die('Error: ' . $e->getMessage());
+    }
+}
 
 
 }

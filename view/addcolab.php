@@ -1,50 +1,3 @@
-<?php
-include '../controller/reclamC.php';
-include '../model/reclamC.php'; // Update the path to match the location of reclam.php
-
-
-$error = "";
-
-// Create an instance of the controller
-$reclamC = new reclamsC();
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (
-        isset($_POST["idR"]) &&
-        isset($_POST["idU"]) &&
-        isset($_POST["sub"]) &&
-        isset($_POST["typee"]) &&
-        isset($_POST["fed"])
-    ) {
-        if (
-            !empty($_POST["idR"]) &&
-            !empty($_POST["idU"]) &&
-            !empty($_POST["sub"]) &&
-            !empty($_POST["typee"]) &&
-            !empty($_POST["fed"])
-        ) {
-            // Fetch form data
-            $idR = $_POST["idR"];
-            $idU = $_POST["idU"];
-            $subject = $_POST["sub"];
-            $description = $_POST["typee"];
-            $feedback = $_POST["fed"];
-
-            // Create a new Reclam object
-            $reclams = new reclamC(null, $idU, $subject, $description,$feedback);
-
-            // Call the update method
-            $reclamC->updatereclam($reclams, $idR, $idU);
-
-
-            header('Location: listreclam.php');
-            exit;
-        } else {
-            $error = "Missing information";
-        }
-    }
-}
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,42 +7,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    
-	<!-- My CSS -->
-	<link rel="stylesheet" href="asset/css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-   
-    <style>
-    /* Custom Styles */
-    .footer-links {
-        margin-top: 50px;
-    }
+	<!-- My CSS -->
+	<link rel="stylesheet" href="asset/css/add.css">
 
-    .footer-links a {
-        display: block;
-        margin-bottom: 10px;
-        font-size: 18px;
-        color: #333;
-    }
-
-    .error {
-        color: red;
-    }
-</style>
+	<title>AdminHub</title>
 </head>
 <body>
-<div id="overlay"></div>
+
 
 	<!-- SIDEBAR -->
 	<section id="sidebar">
-    <a href="forum.php" class="brand">
-      <!-- <img src="asset/img/icon.png" alt="AzulTunes Logo" class="logo">-->
-      <span class="text"><i class="fa fa-book me-3"></i>EDUISLAND</span>
+    <a href="#" class="brand">
+        <img src="asset/img/icon.png" alt="AzulTunes Logo" class="logo">
+        <span class="text">AzulTunes</span>
     </a>
 
 		<ul class="side-menu top">
             <li class="active">
-                <a href="test.php">
+                <a href="index.php">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
                 </a>
@@ -107,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </a>
             </li>
             <li>
-                <a href="add-collab.php">
+                <a href="#">
                     <i class='bx bxs-group'></i>
                     <span class="text">Collaborators</span>
                 </a>
@@ -125,9 +61,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </a>
             </li>
             <li>
-                <a href="listreclam.php">
+                <a href="#">
                     <i class='bx bxs-megaphone'></i>
-                    <span class="text">Reclamation</span>
+                    <span class="text">Claims</span>
                 </a>
             </li>
         </ul>
@@ -149,37 +85,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	</section>
 	<!-- SIDEBAR -->
 
-
-
-	<!-- CONTENT -->
-	<section id="content">
-		<!-- NAVBAR -->
-		<nav>
-			<i class='bx bx-menu' ></i>
-	
-			<form action="#">
-			
-			</form>
-			<input type="checkbox" id="switch-mode" hidden>
-			<label for="switch-mode" class="switch-mode"></label>
-			<a href="#" class="notification">
-				<i class='bx bxs-bell' ></i>
-				<span class="num">8</span>
-			</a>
-			<a href="#" class="profile">
-				<img src="asset/img/ena">
-			</a>
-		</nav>
-		<!-- NAVBAR -->
-
-	<!-- MAIN -->
+<!-- CONTENT -->
+<section id="content">
+    <!-- NAVBAR -->
+    <nav>
+        <i class='bx bx-menu' ></i>
+        <a href="#" class="nav-link">Categories</a>
+        <form action="#">
+            <div class="form-input">
+                <input type="search" placeholder="Search...">
+                <button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+            </div>
+        </form>
+        <input type="checkbox" id="switch-mode" hidden>
+        <label for="switch-mode" class="switch-mode"></label>
+        <a href="#" class="notification">
+            <i class='bx bxs-bell' ></i>
+            <span class="num">8</span>
+        </a>
+        <a href="#" class="profile">
+            <img src="asset/img/ena">
+        </a>
+    </nav>
+    <!-- NAVBAR -->
+<!-- MAIN -->
 <main style="text-align: center;">
     <div class="head-title">
         <div class="left">
-            <h1>Reclamation</h1>
+            <h1>Collaborators</h1>
             <ul class="breadcrumb">
                 <li>
-                    <a href="#">Update of reclamtion</a>
+                    <a href="#">Dashboard</a>
                 </li>
                 <li><i class='bx bx-chevron-right' ></i></li>
                 <li>
@@ -187,7 +123,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </li>
             </ul>
         </div>
-      
+        <a href="#" class="btn-download">
+            <i class='bx bxs-cloud-download' ></i>
+            <span class="text">Download PDF</span>
+        </a>
     </div>
 
     <div class="table-data" style="margin: auto; width: 50%; text-align: left;"> <!-- Centering the table and adjusting width -->
@@ -232,55 +171,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-	</section>
-	<!-- CONTENT -->
+</section>
+<!-- CONTENT -->
+
 	
-    <script>
-        document.getElementById('reclamationForm').addEventListener('submit', function(event) {
-            var idR = document.getElementById('idR').value.trim();
-            var idU = document.getElementById('idU').value.trim();
-            var description = document.getElementById('desc').value.trim();
-            var feedback = document.getElementById('fed').value.trim();
 
-            // Clear previous error messages
-            document.getElementById("erreurid").innerHTML = '';
-            document.getElementById("erreuridu").innerHTML = '';
-            document.getElementById("erreurTypee").innerHTML = '';
-            document.getElementById("erreurNom").innerHTML = '';
-
-            // Regular expressions for validation
-            var idRegex = /^\d+$/;
-            var descriptionRegex = /^.{1,500}$/;
-            var feedbackRegex = /^.{1,100}$/;
-
-            // Validation for idR
-            if (!/^\d+$/.test(idR)) {
-                event.preventDefault();
-                document.getElementById("erreurid").innerHTML = "ID must be a number.";
-            }
-
-            // Validation for idU
-            if (!/^\d+$/.test(idU)) {
-                event.preventDefault();
-                document.getElementById("erreuridu").innerHTML = "ID USER must be a number.";
-            }
-           
-            // Validation for description length
-            if (!descriptionRegex.test(desc)) {
-                event.preventDefault();
-                document.getElementById("erreurTypee").innerHTML = "Description must have fewer than 500 characters";
-            }
-
-            // Validation for feedback length
-            if (!feedbackRegex.test(fed)) {
-                event.preventDefault();
-                document.getElementById("erreurNom").innerHTML = "Feedback must have fewer than 100 characters";
-            }
-        });
-    </script>
-
-	<script src="asset/java/script.js"></script>
-    
+	<script src="asset/java/add.js"></script>
 </body>
 </html>
-

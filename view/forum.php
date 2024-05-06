@@ -136,7 +136,7 @@ if (
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
         <div class="container">
             <!-- Navbar Content -->
-            <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <a href="../index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
                 <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>EDUISLAND</h2>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -160,7 +160,7 @@ if (
                     </div>
                     <a href="../contact.html" class="nav-item nav-link">Contact</a>
                 </div>
-                <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
+                <a href="#" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block"  onclick="showMessageBox('list')">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
             </div>
         </div>
     </nav>
@@ -182,7 +182,7 @@ if (
             <div class="mb-3">
                 <label for="subject" class="form-label">Subject</label>
                 <select class="form-select" id="subjectt" name="subjectt">
-                    <option value="1">Cours</option>
+                    <option value="Cours">Cours</option>
                     <option value="Prof">Prof</option>
                     <option value="other">Other</option>
                 </select>
@@ -203,8 +203,8 @@ if (
 
     <!-- Back to list and Search the responses section -->
     <div class="container footer-links">
-        <a href="#" class="btn btn-primary" onclick="showMessageBox('list')">Back to list</a>
-        <a href="#" class="btn btn-primary" onclick="showMessageBox('search')">Search the responses</a>
+        <!--<a href="#" class="btn btn-primary" onclick="showMessageBox('list')">Back to list</a>-->
+       <!-- <a href="#" class="btn btn-primary" onclick="showMessageBox('search')">Search the responses</a>-->
     </div>
 
     <!-- JavaScript Libraries -->
