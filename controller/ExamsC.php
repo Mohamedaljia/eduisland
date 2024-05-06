@@ -6,8 +6,55 @@ require '../config.php';
 
 
 class ExamsC
-{ 
-
+{ public function findExamById($id)
+    {
+        $sql = "SELECT * FROM exams WHERE id = :id";
+        $db = config::getConnexion();
+        try {
+            $query = $db->prepare($sql);
+            $query->bindParam(':id', $id);
+            $query->execute();
+            $exam = $query->fetch(PDO::FETCH_ASSOC);
+            
+            if ($exam) {
+                echo "Exam found with ID: $id <br>";
+                echo "ID: " . $exam['id'] . "<br>";
+                echo "Type: " . $exam['typee'] . "<br>";
+                echo "Langue: " . $exam['langue'] . "<br>";
+                echo "Nom: " . $exam['nom'] . "<br>";
+                echo "Niveau: " . $exam['niveau'] . "<br>";
+                // You can display more attributes here if needed
+            } else {
+                echo "Exam not found with ID: $id";
+            }
+        } catch (PDOException $e) {
+            die('Error: ' . $e->getMessage());
+        }
+    }
+    /*public function statistiqueParNiveau()
+    { 
+        try {
+            $db = config::getConnexion();
+            $sql = "SELECT niveau, COUNT(*) as nombre_certificats FROM exams GROUP BY niveau";
+            $req = $db->prepare($sql);
+            $req->execute();
+            $statistiques = $req->fetchAll(PDO::FETCH_ASSOC);
+            return $statistiques;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }*/
+    public function countReclamationsByType() {
+        $sql = "SELECT niveau, COUNT(*) AS count FROM exams GROUP BY niveau";
+        $db = config::getConnexion();
+        try {
+            $query = $db->query($sql);
+            $reclamationsByType = $query->fetchAll(PDO::FETCH_ASSOC);
+            return $reclamationsByType;
+        } catch (PDOException $e) {
+            die('Error: ' . $e->getMessage());
+        }
+    }
     public function listExams()
     {
         $sql = "SELECT * FROM exams";
@@ -172,7 +219,7 @@ class ExamsC
         }
     }
 
-    function updateExams($exams, $id)
+    /*function updateExams($exams, $id)
     {   
         try {
             $db = config::getConnexion();
@@ -182,7 +229,7 @@ class ExamsC
                     langue = :langue, 
                     nom = :nom, 
                     niveau = :niveau,
-                    file= :file
+                   
                 WHERE id= :id'
             );
             
@@ -192,12 +239,45 @@ class ExamsC
                 'langue' => $exams->getLangue(),
                 'nom' => $exams->getNom(),
                 'niveau' => $exams->getNiveau(),
-                'file' => $exams->getfile(),
+              
             ]);
             
             echo $query->rowCount() . " records UPDATED successfully <br>";
         } catch (PDOException $e) {
             $e->getMessage();
         }
+    }*/
+    public function updateExams($exams, $id)
+{   
+    try {
+        $db = config::getConnexion();
+        $query = $db->prepare(
+            'UPDATE exams SET 
+                typee = :typee, 
+                langue = :langue, 
+                nom = :nom, 
+                niveau = :niveau
+            WHERE id = :id' // Removed the extra comma before WHERE clause
+        );
+        
+        $query->execute([
+            'id' => $id,
+            'typee' => $exams->getType(),
+            'langue' => $exams->getLangue(),
+            'nom' => $exams->getNom(),
+            'niveau' => $exams->getNiveau(),
+        ]);
+        
+        // Check if any row was affected by the update
+        if ($query->rowCount() > 0) {
+            echo $query->rowCount() . " record updated successfully.<br>";
+        } else {
+            echo "No records updated.<br>";
+        }
+    } catch (PDOException $e) {
+        // Echo or log the error message for debugging
+        echo "Error updating record: " . $e->getMessage();
     }
+}
+
 }

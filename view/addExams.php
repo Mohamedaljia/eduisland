@@ -113,15 +113,21 @@ if (
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<!-- My CSS -->
+	<link rel="stylesheet" href="asset/css/add.css">
     <style>
         /* Background styling */
         .dashboard-container {
-            /* Removed background color */
+           
             padding: 20px;
             border-right: 1px solid #dee2e6;
         }
         .dashboard-container h2 {
-            color: #007bff; /* Changed text color to match EDUISLAND */
+            color: #27abb4e5; 
         }
         .dashboard-btn {
             width: 100%;
@@ -139,8 +145,8 @@ if (
         .dashboard-btn a:hover {
             background-color: #0056b3;
         }
-        body {
-            background-color: #dee2e6; /* Blue cyan background */
+       /* body {
+           
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -148,16 +154,32 @@ if (
             justify-content: center;
             align-items: center;
             height: 100vh;
-        }
-
+        }*/
+        #content form {
+    background-color: #fff; /* White background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+/* Style du bouton Search */
+#content form button[type="submit"] {
+    background-color: #0056b3; /* Couleur bleue */
+    color: #fff; /* Couleur du texte blanc */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+    padding: 10px 20px; /* Espacement à l'intérieur du bouton */
+    cursor: pointer; /* Curseur de la souris en forme de main */
+    transition: background-color 0.3s ease; /* Transition fluide pour la couleur de fond */
+}
         /* Form container */
-        .form-container {
-            background-color: #ffffff; /* White background */
+       /* .form-container {
+            background-color: #ffffff; /* White background 
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Shadow effect */
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Shadow effect 
             text-align: center;
-        }
+        }*/
 
         /* Form styling */
         form {
@@ -191,7 +213,7 @@ if (
         form table td input[type="submit"],
         form table td input[type="reset"] {
             padding: 10px 20px;
-            background-color: #2196F3; /* Blue button color */
+            background-color: #0056b3; /* Blue button color */
             color: white;
             border: none;
             border-radius: 5px;
@@ -201,7 +223,7 @@ if (
 
         form table td input[type="submit"]:hover,
         form table td input[type="reset"]:hover {
-            background-color: #0b7dda; /* Darker blue on hover */
+            background-color: #0056b3; /* Darker blue on hover */
         }
 
         /* Error message styling */
@@ -228,8 +250,130 @@ if (
 <body>
     
    
-    <div class="form-container">
-        <img src="path_to_your_logo.png" alt="EduIsland Logo" class="logo">
+    <div class="">
+    
+
+        <!-- SIDEBAR -->
+	<section id="sidebar">
+    <a href="#" class="brand">
+        
+        <span class="text">EDUISLAND</span>
+    </a>
+
+		<ul class="side-menu top">
+            <li class="active">
+                <a href="index.php">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost/2a27/view/addExams.php?id=963&search=#">
+                    <i class='bx bxs-user'></i>
+                    <span class="text">add exam</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost/2a27/view/listExams.php">
+                    <i class='bx bxs-pie-chart-alt-2'></i>
+                    <span class="text">list exam</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost/2a27/view/addCertif.php">
+                    <i class='bx bxs-group'></i>
+                    <span class="text">add certif</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost/2a27/view/listCertif.php">
+                    <i class='bx bxs-bar-chart-alt-2'></i>
+                    <span class="text">list certif</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-calendar-event'></i>
+                    <span class="text">Events</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-megaphone'></i>
+                    <span class="text">Claims</span>
+                </a>
+            </li>
+        </ul>
+<ul class="side-menu">
+    <li>
+        <a href="#">
+            <i class='bx bxs-cog'></i>
+            <span class="text">Settings</span>
+        </a>
+    </li>
+    <li>
+        <a href="#" class="logout">
+            <i class='bx bxs-log-out-circle'></i>
+            <span class="text">Logout</span>
+        </a>
+    </li>
+</ul>
+
+	</section>
+	<!-- SIDEBAR -->
+
+<!-- CONTENT -->
+<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<a href="#" class="nav-link">Categories</a>
+			<form action="#">
+				<div class="form-input">
+					<input type="search" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<a href="#" class="notification">
+				<i class='bx bxs-bell' ></i>
+				<span class="num">8</span>
+			</a>
+			<a href="#" class="profile">
+				<img src="asset/img/ena">
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+        <main>
+        <div class="head-title">
+				<div class="left">
+					<h1>Collaborators</h1>
+					<ul class="breadcrumb">
+						<li>
+							<a href="#">Dashboard</a>
+						</li>
+						<li><i class='bx bx-chevron-right' ></i></li>
+						<li>
+							<a class="active" href="#">Home</a>
+						</li>
+					</ul>
+				</div>
+				<a href="#" class="btn-download">
+					<i class='bx bxs-cloud-download' ></i>
+					<span class="text">Download PDF</span>
+				</a>
+			</div>
+            <div class="table-data">
+				<div class="order">
+					<div class="head">
+						<h3>Add New Collab</h3>
+						<i class='bx bx-search' ></i>
+						<i class='bx bx-filter' ></i>
+					</div>
+				
+
+
         <div class="name">EDUISLAND</div>
         <form action="" method="POST" id="examsForm" enctype="multipart/form-data">
             <table>
@@ -290,6 +434,51 @@ if (
         </form>
         <div id="error"></div>
     </div>
+    <h2></h2>
+    <form action="" method="get">
+    <h3>Search Exam by ID</h3>
+        <label for="exam_id">Enter Exam ID:</label>
+        <input type="text" id="exam_id" name="id" required>
+        <button type="submit" name="search">Search</button>
+
+        
+        <?php
+    // Check if the form is submitted and the search button is clicked
+    if (isset($_GET['search'])) {
+       
+
+        // Check if the ID parameter is set in the URL
+        if (isset($_GET['id'])) {
+            // Get the exam ID from the URL parameter
+            $examId = $_GET['id'];
+
+            // Create an instance of the ExamsC class
+            $examsC = new ExamsC();
+
+            // Call the findExamById method to search for the exam
+            $exam = $examsC->findExamById($examId);
+
+            // Display the exam attributes if found
+            if ($exam) {
+                echo "<h3>Exam Details</h3>";
+                echo "ID: " . $exam['id'] . "<br>";
+                echo "Type: " . $exam['typee'] . "<br>";
+                echo "Langue: " . $exam['langue'] . "<br>";
+                echo "Nom: " . $exam['nom'] . "<br>";
+                echo "Niveau: " . $exam['niveau'] . "<br>";
+                // You can display more attributes here if needed
+            } else {
+                echo "Exam not found with ID: $examId";
+            }
+        } else {
+            // If the ID parameter is not set, display an error message
+            echo "Error: Exam ID not provided.";
+        }
+    }
+    ?>
+    </form>
+
+    
 
     <script>
     document.getElementById("examsForm").addEventListener("submit", function(event) {
@@ -347,4 +536,5 @@ if (
     });
 </script>
 </body>
+</main>
 </html>

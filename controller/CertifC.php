@@ -255,6 +255,8 @@ function addceertif($certif) {
             $e->getMessage();
         }
     }
+   
+
     public function afficherCertif($id_exam)
     {
         try{

@@ -76,174 +76,294 @@ $c = $certifC->afficherExam();
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exams</title>
-      <!-- Favicon -->
-      <link href="img/favicon.ico" rel="icon">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Google Web Fonts -->
-
-<!-- Icon Font Stylesheet -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-<!-- Libraries Stylesheet -->
-<link href="lib/animate/animate.min.css" rel="stylesheet">
-<link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-<!-- Customized Bootstrap Stylesheet -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Template Stylesheet -->
-<link href="css/style.css" rel="stylesheet">
+	 <!-- Boxicons -->
+     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- My CSS -->
+    <link rel="stylesheet" href="asset/css/add.css">
+   
+	<title>AdminHub</title>
     <style>
-        /* CSS for Form Styling */
-       body {
-            font-family: Arial, sans-serif;
+        /*body {
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
-            display: flex;
-           justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        /*.container {
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 400px;
-        }
-
-        .container h2 {
-            color: #27abb4e5;
-           /* text-align: center;
-            margin-bottom: 20px;
+            font-family: Arial, sans-serif;
         }*/
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+        /*#content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }*/
 
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .form-group input[type="text"],
-        .form-group select {
-            width: 100%;
-            padding: 10px;
+        form {
+            width: 400px;
+            padding: 20px;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
             box-sizing: border-box;
         }
 
-        .form-group input[type="submit"],
-        .form-group input[type="reset"] {
-            width: 49%;
+        input[type="submit"],
+        input[type="reset"] {
+            width: 100%;
             padding: 10px;
+            background-color: #007bff;
+            color: #fff;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
             cursor: pointer;
-            font-size: 16px;
+            transition: background-color 0.3s;
         }
 
-        .form-group input[type="submit"] {
-            background-color: #27abb4e5;
-            color: #fff;
-        }
-
-        .form-group input[type="submit"]:hover {
-            background-color: #27abb4e5;
-        }
-
-        .form-group input[type="reset"] {
-            background-color: #27abb4e5;
-            color: #fff;
-        }
-
-        .form-group input[type="reset"]:hover {
-            background-color: #27abb4e5;
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #0056b3;
         }
 
         .error {
             color: red;
+            margin-top: 10px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 10px;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .form-input {
+            display: flex;
+            align-items: center;
+        }
+
+        .form-input input[type="search"] {
+            width: 70%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-input button {
+            width: 30%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-input button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
-
 <body>
-    
+<div id="overlay"></div>
 
-<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-    <div class="">
-        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>EDUISLAND</h2>
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+    <a href="#" class="brand">
+        <img src="" alt="" class="logo">
+        <span class="text">EDUISLAND</span>
+    </a>
+
+		<ul class="side-menu top">
+            <li class="active">
+                <a href="index.php">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost/2a27/view/addExams.php?id=963&search=#">
+                    <i class='bx bxs-user'></i>
+                    <span class="text">add exam</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost/2a27/view/listExams.php">
+                    <i class='bx bxs-pie-chart-alt-2'></i>
+                    <span class="text">list exam</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost/2a27/view/addCertif.php">
+                    <i class='bx bxs-group'></i>
+                    <span class="text">add certif</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost/2a27/view/listCertif.php">
+                    <i class='bx bxs-bar-chart-alt-2'></i>
+                    <span class="text">list certif</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-calendar-event'></i>
+                    <span class="text">Events</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-megaphone'></i>
+                    <span class="text">Claims</span>
+                </a>
+            </li>
+        </ul>
+<ul class="side-menu">
+    <li>
+        <a href="#">
+            <i class='bx bxs-cog'></i>
+            <span class="text">Settings</span>
         </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
-                <a href="about.html" class="nav-item nav-link">About</a>
-                <a href="courses.html" class="nav-item nav-link">Courses</a>
-                <a href="gestion.html" class="nav-item nav-link active">Exams</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu fade-down m-0">
-                        <a href="team.html" class="dropdown-item">Our Team</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a>
-                    </div>
-                </div>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
-            </div>
-            <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
-        </div>
-    </div>
- </nav>
+    </li>
+    <li>
+        <a href="#" class="logout">
+            <i class='bx bxs-log-out-circle'></i>
+            <span class="text">Logout</span>
+        </a>
+    </li>
+</ul>
 
-    <div class="container">
-        <h2>formule de certeficat</h2>
-        <form action="" method="POST" id="examsForm">
-            <div class="form-group">
-                <label for="id_certif">Id_certif:</label>
-                <input type="text" id="id_certif" name="id_certif" />
-            </div>
-            <div class="form-group">
-                <label for="id_exam">Id_exam:</label>
-                <select name="id_exam" id="id_exam">
+	</section>
+	<!-- SIDEBAR -->
+
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<a href="#" class="nav-link">Categories</a>
+			<form action="#">
+				<div class="form-input">
+					<input type="search" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<a href="#" class="notification">
+				<i class='bx bxs-bell' ></i>
+				<span class="num">8</span>
+			</a>
+			<a href="#" class="profile">
+				<img src="asset/img/ena">
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+
+
+        <main>
+        <div class="head-title">
+				<div class="left">
+					<h1>Collaborators</h1>
+					<ul class="breadcrumb">
+						<li>
+							<a href="#">Dashboard</a>
+						</li>
+						<li><i class='bx bx-chevron-right' ></i></li>
+						<li>
+							<a class="active" href="#">Home</a>
+						</li>
+					</ul>
+                    <div class="table-data">    
+				<div class="order">
+					<div class="head">
+						<h3>formule de certeficat</h3>
+						<i class='bx bx-search' ></i>
+						<i class='bx bx-filter' ></i>
+					</div>
+      
+
+                    <div class="name">EDUISLAND</div>    
+                    <form action="" method="POST" id="examsForm" enctype="multipart/form-data">
+                    <table>
+                            <tr>
+                            <td><label for="id_certif">Id_certif:</label>
+                                <input type="text" id="id_certif" name="id_certif" />
+                                </td>
+                                </tr>
+            
+                            <tr>        
+                            <td> <label for="id_exam">Id_exam:</label>
+                            <select name="id_exam" id="id_exam">
                     <?php foreach ($c as $exams) { ?>
                         <option value="<?php echo $exams['id']; ?>"><?php echo $exams['id']; ?></option>
                     <?php } ?>
                 </select>
-            </div>
-            <div class="form-group">
-                <label for="specialite">Specialite:</label>
+                </td>    </tr>
+                        
+                <tr>
+               <td> <label for="specialite">Specialite:</label>
                 <input type="text" id="specialite" name="specialite" />
-            </div>
-            <div class="form-group">
+                </td>
+                </tr>
+           
+                <tr>
+               <td>
                 <label for="id_etudiant">Id_etudiant:</label>
                 <input type="text" id="id_etudiant" name="id_etudiant" />
-            </div>
-            <div class="form-group">
+                </td>
+                </tr>
+            
+                <tr>
+               <td>
                 <label for="datee">Date:</label>
                 <input type="text" id="datee" name="datee" />
-            </div>
-            <div class="form-group">
+                </td>
+                </tr>
+            
+                <tr>
+               <td>
                 <input type="submit" value="Save">
                 <input type="reset" value="Reset">
-            </div>
+                </td>
+                </tr>
         </form>
-    </div>
-
+   
+</div>
     <script>
         document.getElementById("examsForm").addEventListener("submit", function(event) {
             var id = document.getElementById("id_certif").value.trim();
@@ -288,5 +408,5 @@ $c = $certifC->afficherExam();
     </script>
 
 </body>
-
+</main>
 </html>
