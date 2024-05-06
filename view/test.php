@@ -24,13 +24,13 @@
 
 		<ul class="side-menu top">
             <li class="active">
-                <a href="test.php">
+                <a href="#">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
                 </a>
             </li>
             <li>
-                <a href="test.php">
+                <a href="addUser.php">
                     <i class='bx bxs-user'></i>
                     <span class="text">Users</span>
                 </a>
@@ -42,7 +42,7 @@
                 </a>
             </li>
             <li>
-                <a href="add-collab.php">
+                <a href="#">
                     <i class='bx bxs-group'></i>
                     <span class="text">Collaborators</span>
                 </a>
@@ -60,7 +60,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="listUser.php">
                     <i class='bx bxs-megaphone'></i>
                     <span class="text">Reclamation</span>
                 </a>
@@ -107,88 +107,6 @@
 		</nav>
 		<!-- NAVBAR -->
 
-		<!-- MAIN -->
-		<main>
-			<div class="head-title">
-				<div class="left">
-					<h1>Users</h1>
-					<ul class="breadcrumb">
-						<li>
-							<a href="#">Users</a>
-						</li>
-						<li><i class='bx bx-chevron-right' ></i></li>
-						<li>
-							<a class="active" href="test.php">Home</a>
-						</li>
-					</ul>
-				</div>
-				<a href="#" class="btn-download">
-					<i class='bx bxs-cloud-download' ></i>
-					<span class="text">Download PDF</span>
-				</a>
-			</div>
-
-
-
-			<div class="table-data">
-    <div class="table-data order">
-        <div class="head">
-            <h3>List of Users</h3>
-        </div>
-        <table class="table" align="center">
-    <tbody>
-    <?php
-    include "../controller/User.php";
-
-    $c = new User();
-    $tab = $c->listUserC();
-
-    ?>
-
-    
-    <table border="1" align="center" width="70%">
-        <tr>
-            <th>id</th>
-            <th>nom</th>
-            <th>prenom</th>
-            <th>email</th>
-            <th>mdp</th>
-            <th>occupation</th>
-
-            <th></th>
-        
-        </tr>
-
-        <?php
-        foreach ($tab as $User) {
-        ?>
-
-            <tr>
-                <td><?= $User['id']; ?></td>
-                <td><?= $User['nom']; ?></td>
-                <td><?= $User['prenom']; ?></td>
-                <td><?= $User['email']; ?></td>
-                <td><?= $User['mdp']; ?></td>
-                <td><?= $User['occupation']; ?></td>
-
-                <td align="center">
-                    <form method="POST" action="updateUser.php">
-                        <input type="submit" name="update" value="Update">
-                        <input type="hidden" value="<?php echo $User['id']; ?>" name="id">
-                    </form>
-                    <a href="deleteUser.php?id=<?php echo $User['id']; ?>">Delete</a>
-                </td>
-            </tr>
-        <?php
-        }
-        ?>
-    </table>
-    </div>
-     </div>
-                                    
-			</div>
-		</main>
-		<!-- MAIN -->
 	</section>
 	<!-- CONTENT -->
 	

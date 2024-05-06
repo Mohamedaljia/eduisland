@@ -36,77 +36,135 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Affichage du reste du code HTML (le formulaire)
 ?>
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Role Update</title>
-    <meta charset="utf-8">
-    <title>Add User</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    
+	<!-- My CSS -->
+	<link rel="stylesheet" href="asset/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
    
-
-       <!-- Favicon -->
-       <link href="img/favicon.ico" rel="icon">
-
-<!-- Google Web Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
-
-<!-- Icon Font Stylesheet -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-<!-- Libraries Stylesheet -->
-<link href="lib/animate/animate.min.css" rel="stylesheet">
-<link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-<!-- Customized Bootstrap Stylesheet -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Template Stylesheet -->
-<link href="css/style.css" rel="stylesheet">
 
 </head>
 
 <body> 
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow sticky-top p-0">
-        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>EDUISLAND</h2>
+div id="overlay"></div>
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+    <a href="forum.php" class="brand">
+      <!-- <img src="asset/img/icon.png" alt="AzulTunes Logo" class="logo">-->
+      <span class="text"><i class="fa fa-book me-3"></i>EDUISLAND</span>
+    </a>
+
+		<ul class="side-menu top">
+            <li class="active">
+                <a href="test.php">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="updateRole.php">
+                    <i class='bx bxs-user'></i>
+                    <span class="text">Users</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-pie-chart-alt-2'></i>
+                    <span class="text">Forum</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-group'></i>
+                    <span class="text">Collaborators</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-bar-chart-alt-2'></i>
+                    <span class="text">Deals</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-calendar-event'></i>
+                    <span class="text">Events</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-megaphone'></i>
+                    <span class="text">Reclamation</span>
+                </a>
+            </li>
+        </ul>
+<ul class="side-menu">
+    <li>
+        <a href="#">
+            <i class='bx bxs-cog'></i>
+            <span class="text">Settings</span>
         </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="../index.html" class="nav-item nav-link active">Home</a>
-                <a href="../about.html" class="nav-item nav-link">About</a>
-                <a href="../contact.html" class="nav-item nav-link">Contact</a>
-            </div>
+    </li>
+    <li>
+        <a href="#" class="logout">
+            <i class='bx bxs-log-out-circle'></i>
+            <span class="text">Logout</span>
+        </a>
+    </li>
+</ul>
+
+	</section>
+	<!-- SIDEBAR -->
+
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+	
+			<form action="#">
+			
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<a href="#" class="notification">
+				<i class='bx bxs-bell' ></i>
+				<span class="num">8</span>
+			</a>
+			<a href="#" class="profile">
+				<img src="asset/img/ena">
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+
+	<!-- MAIN -->
+<main style="text-align: center;">
+    <div class="head-title">
+        <div class="left">
+            <h1>Roles</h1>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">Update Roles</a>
+                </li>
+                <li><i class='bx bx-chevron-right' ></i></li>
+                <li>
+                    <a class="active" href="#">Home</a>
+                </li>
+            </ul>
         </div>
-    </nav>
-    <!-- Navbar End -->
-
-  
-
-    <div id="error">
-        <?php echo $error; ?>
+        <a href="listRole.php" class="btn-download">
+					<span class="text">Back to list Roles</span>
+				</a>
     </div>
-    <div class="container">
-        <h1>Role Form</h1>
-        <?php
-        // Affichage du formulaire avec les données du rôle à mettre à jour
-        
-        ?>
 
 <form id="RoleForm" method="POST"> <!-- Ensure you specify the method as POST -->
                 <div class="mb-3 row">
@@ -129,7 +187,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php
         ?>
     </div>
-    
+    <script src="asset/java/script.js"></script>
+
 </body>
 
 </html>

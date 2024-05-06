@@ -6,14 +6,15 @@ class Role
 {
     
 
-    public function afficheRole($id_role)
+    public function afficheRole($occupation)
     {
         try {
             $pdo = config::getConnexion();
 
-            $query = $pdo->prepare("SELECT * FROM user WHERE occupation = :id ");
-            $query->execute(['id' => $id_role]);
-            $reclams = $query->fetch();
+            $query = $pdo->prepare("SELECT * FROM user WHERE occupation = :id");
+            $query->execute(['id' => $occupation]);
+            $reclams = $query->fetchAll(PDO::FETCH_ASSOC);
+            return $reclams;
         } catch (PDOException $e) {
           echo $e->getMessage();
         }
@@ -120,14 +121,14 @@ class Role
     }
     // Method to fetch all distinct idRP values from the reponse table
     
-    public function getAllIdRRoles()
+    public function getAllIdRoles()
     {
         try {
             $pdo = config::getConnexion();
 
             $query = $pdo->query("SELECT id_role FROM role");
-            $idRRoles = $query->fetchAll(PDO::FETCH_COLUMN);
-            return $idRRoles;
+            $idRoles = $query->fetchAll(PDO::FETCH_COLUMN);
+            return $idRoles;
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }

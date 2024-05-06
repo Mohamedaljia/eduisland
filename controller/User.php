@@ -32,7 +32,7 @@ class User
     }
 
 
-    function addUserC ($User )
+    function addUserC ($User)
     {
         $db = config::getConnexion();
 
