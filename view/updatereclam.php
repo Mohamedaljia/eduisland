@@ -82,20 +82,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	<!-- SIDEBAR -->
 	<section id="sidebar">
-    <a href="forum.php" class="brand">
+    <a href="../index.html" class="brand">
       <!-- <img src="asset/img/icon.png" alt="AzulTunes Logo" class="logo">-->
       <span class="text"><i class="fa fa-book me-3"></i>EDUISLAND</span>
     </a>
 
 		<ul class="side-menu top">
-            <li class="active">
+            <li>
                 <a href="test.php">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="listUser.php">
                     <i class='bx bxs-user'></i>
                     <span class="text">Users</span>
                 </a>
@@ -124,7 +124,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <span class="text">Events</span>
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="listreclam.php">
                     <i class='bx bxs-megaphone'></i>
                     <span class="text">Reclamation</span>
@@ -156,19 +156,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<!-- NAVBAR -->
 		<nav>
 			<i class='bx bx-menu' ></i>
-	
-			<form action="#">
-			
-			</form>
-			<input type="checkbox" id="switch-mode" hidden>
-			<label for="switch-mode" class="switch-mode"></label>
-			<a href="#" class="notification">
-				<i class='bx bxs-bell' ></i>
-				<span class="num">8</span>
-			</a>
-			<a href="#" class="profile">
-				<img src="asset/img/ena">
-			</a>
 		</nav>
 		<!-- NAVBAR -->
 

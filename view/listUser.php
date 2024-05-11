@@ -23,13 +23,13 @@
     </a>
 
 		<ul class="side-menu top">
-            <li >
+            <li>
                 <a href="test.php">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="listUser.php">
                     <i class='bx bxs-user'></i>
                     <span class="text">Users</span>
@@ -42,7 +42,7 @@
                 </a>
             </li>
             <li>
-                <a href="add-collab.php">
+                <a href="#">
                     <i class='bx bxs-group'></i>
                     <span class="text">Collaborators</span>
                 </a>
@@ -59,7 +59,7 @@
                     <span class="text">Events</span>
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="listreclam.php">
                     <i class='bx bxs-megaphone'></i>
                     <span class="text">Reclamation</span>
@@ -90,7 +90,7 @@
 	<section id="content">
 		<!-- NAVBAR -->
 		<nav>
-			<i class='bx bx-menu' ></i>
+			<i class='bx bx-menu' ></i>	
 		</nav>
 		<!-- NAVBAR -->
 
@@ -98,10 +98,10 @@
 		<main>
 			<div class="head-title">
 				<div class="left">
-					<h1>Reclamation</h1>
+					<h1>Users</h1>
 					<ul class="breadcrumb">
 						<li>
-							<a href="#">Reclamation</a>
+							<a href="#">Users</a>
 						</li>
 						<li><i class='bx bx-chevron-right' ></i></li>
 						<li>
@@ -109,9 +109,10 @@
 						</li>
 					</ul>
 				</div>
-                <a href="sta.php" class="btn-download">
-                     <span class="text">Statestic of subject</span>
-                </a>
+				<a href="listRole.php" class="btn-download">
+					<i class='bx bxs-cloud-download' ></i>
+					<span class="text">Liste de role</span>
+				</a>
 			</div>
 
 
@@ -119,53 +120,78 @@
 			<div class="table-data">
     <div class="table-data order">
         <div class="head">
-            <h3>List of reclam</h3>
+            <h3>List of Users</h3>
         </div>
         <table class="table table-hover text-center">
-       
-            <tbody>
-                
-                    <table class="table" align="center">
-                        <thead>
-                            <tr>
-                                <th>IdR</th>
-                                <th>IdU</th>
-                                <th>Subject</th>
-                                <th>Description</th>
-                                <th>Feedback</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php 
-                            include '../controller/reclamC.php';
-                            $c = new reclamsC();
-                            $tab = $c->listreclam();
-                            foreach ($tab as $reclam) : ?>
-                                <tr>
-                                    <td><?= $reclam['idR']; ?></td>
-                                    <td><?= $reclam['idU']; ?></td>
-                                    <td><?= $reclam['subjectt']; ?></td>
-                                    <td><?= $reclam['descriptionn']; ?></td>
-                                    <td><?= $reclam['feedback']; ?></td>
-                                    <td>
-                                        <a href="deletreclam.php?id=<?= $reclam['idR']; ?>">Delete</a>
-                                    </td>
-                                    <td>
-                                        <a href="reponseF.php?id=<?= $reclam['idR']; ?>">Traiter</a>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
+            
+                <?php
+                include "../controller/User.php";
 
-                    <center style="margin-top: 20px;">
-                        <form method="POST" action="updatereclam.php">
-                            <input type="submit" name="update" value="Update" style="display: block; margin: 20px auto 0; background-color: #007bff; color: #fff; padding: 10px 20px; font-size: 1.2rem; border: none; border-radius: 5px;">
-                        </form>
-                    </center>
-             </tbody>
-         </table>
+                $c = new User();
+                $tab = $c->listUserC();
+
+                ?>
+
+            <tbody>    
+                <table class="table" align="center">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>nom</th>
+                            <th>prenom</th>
+                            <th>email</th>
+                            <th>mdp</th>
+                            <th>occupation</th>
+
+                            <th></th>
+                        
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        foreach ($tab as $User) {
+                        ?>
+
+                            <tr>
+                                <td><?= $User['id']; ?></td>
+                                <td><?= $User['nom']; ?></td>
+                                <td><?= $User['prenom']; ?></td>
+                                <td><?= $User['email']; ?></td>
+                                <td><?= $User['mdp']; ?></td>
+                                <td>
+                                    <?php
+                                    if ($User['occupation'] == 1) {
+                                        echo 'Prof';
+                                    } elseif ($User['occupation'] == 2) {
+                                        echo 'Etudiant';
+                                    } 
+                                    elseif ($User['occupation'] == 4) {
+                                        echo 'Admin';
+                                    }else {
+                                        echo 'Autre';
+                                    }
+                                    ?>
+                                </td>
+
+                                <td>
+                                    <a href="deleteUser.php?id=<?php echo $User['id']; ?>">Delete</a>
+                                </td>
+                                
+                                <td>
+                                    <form method="POST" action="updateUser.php">
+                                    <input type="submit" name="update" value="Update" style="display: block; margin: 20px auto 0; background-color: #007bff; color: #fff; padding: 5px 10px; font-size: 1rem; border: none; border-radius: 3px;">
+                                        <input type="hidden" value="<?php echo $User['id']; ?>" name="id">
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+                </table>
+
+            </tbody>
+
     </div>
      </div>
                                     

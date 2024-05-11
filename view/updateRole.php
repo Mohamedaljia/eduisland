@@ -1,42 +1,42 @@
 <?php
-include '../controller/reponseC.php';
-include '../model/reponse.php'; // Update the path to match the location of reclam.php
-
-
+include '../Controller/Role.php';
+include '../model/Role.php';
 $error = "";
-
-// Create an instance of the controller
-$reponseC = new ReponsesC();
+// create role
+$rols = null;
+// Création d'une instance du contrôleur
+$RoleM = new Role();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (
-        isset($_POST["idRP"]) &&
-         isset($_POST["descP"])
+        isset($_POST["id_role"]) &&
+        isset($_POST["type"])
     ) {
         if (
-            !empty($_POST['idRP']) &&
-            !empty($_POST["descP"]) 
+            !empty($_POST['id_role'])&&
+            !empty($_POST["type"])
         ) {
-            // Fetch form data
-            $idRP=$_POST['idRP'];
-            $descP=$_POST['descP'];
 
-            // Create a new Reclam object
-            $reponses= new reponseC(null,$descP);
+            foreach ($_POST as $key => $value) {
+                echo "Key: $key, Value: $value<br>";
+            }
+            $rols = new RoleC(
+                null,
+                $_POST['type']
+            );
+            var_dump($rols);
+            $RoleM->updateRoleC($rols,$_POST['id_role']); // Utilisez id_user pour l'ID à mettre à jour
 
-            // Call the update method
-            $reponseC->updaterep($reponses, $idRP);
-
-
-            header('Location: listeReponse.php');
-            exit;
-        } else {
+            header('Location: listRole.php');
+            //exit(); // Assurez-vous de quitter le script après la redirection
+        }  else 
             $error = "Missing information";
-        }
+        
     }
 }
-?>
 
+// Affichage du reste du code HTML (le formulaire)
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,8 +50,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<link rel="stylesheet" href="asset/css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
    
+
 </head>
-<body>
+
+<body> 
 <div id="overlay"></div>
 
 	<!-- SIDEBAR -->
@@ -68,20 +70,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <span class="text">Dashboard</span>
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="listUser.php">
                     <i class='bx bxs-user'></i>
                     <span class="text">Users</span>
                 </a>
             </li>
             <li>
-                <a href="listUser.php">
+                <a href="#">
                     <i class='bx bxs-pie-chart-alt-2'></i>
                     <span class="text">Forum</span>
                 </a>
             </li>
             <li>
-                <a href="add-collab.php">
+                <a href="#">
                     <i class='bx bxs-group'></i>
                     <span class="text">Collaborators</span>
                 </a>
@@ -98,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <span class="text">Events</span>
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="listreclam.php">
                     <i class='bx bxs-megaphone'></i>
                     <span class="text">Reclamation</span>
@@ -130,19 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<!-- NAVBAR -->
 		<nav>
 			<i class='bx bx-menu' ></i>
-	
-			<form action="#">
 			
-			</form>
-			<input type="checkbox" id="switch-mode" hidden>
-			<label for="switch-mode" class="switch-mode"></label>
-			<a href="#" class="notification">
-				<i class='bx bxs-bell' ></i>
-				<span class="num">8</span>
-			</a>
-			<a href="#" class="profile">
-				<img src="asset/img/ena">
-			</a>
 		</nav>
 		<!-- NAVBAR -->
 
@@ -150,10 +140,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <main style="text-align: center;">
     <div class="head-title">
         <div class="left">
-            <h1>Collaborators</h1>
+            <h1>Roles</h1>
             <ul class="breadcrumb">
                 <li>
-                    <a href="#">Update of Reponses</a>
+                    <a href="#">Update Roles</a>
                 </li>
                 <li><i class='bx bx-chevron-right' ></i></li>
                 <li>
@@ -161,45 +151,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </li>
             </ul>
         </div>
-        <a href="listeReponse.php" class="btn-download">
-					<span class="text">Back to list Reponses</span>
+        <a href="listRole.php" class="btn-download">
+					<span class="text">Back to list Roles</span>
 				</a>
     </div>
 
-    <div class="table-data" style="margin: auto; width: 50%; text-align: left;"> <!-- Centering the table and adjusting width -->
-        <div class="order">
-            <div class="head">
-                <h3>Reclamation Form</h3>
-                <i class='bx bx-search' ></i>
-                <i class='bx bx-filter' ></i>
-            </div>
-            <form id="reponseForm" method="POST">
-            <div class="mb-3">
-                <label for="reponseId" class="form-label">reponse ID</label>
-                <input type="text" class="form-control" id="idRP" name="idRP"style="margin-left: auto; margin-right: auto; display: block;">
-                <span class="error" id="erreuridRP"></span>
-            </div>
-          
-            <div class="mb-3">
-                <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" id="descP" name="descP" rows="3" style="margin-left: auto; margin-right: auto; display: block; "></textarea>
-                <span class="error" id="erreurdescP"></span>
-            </div>
-            <button type="submit" class="btn-save" style="display: block; margin: 20px auto 0; background-color: #007bff; color: #fff; padding: 10px 20px; font-size: 1.2rem; border: none; border-radius: 5px;">Save</button> <!-- Modified here -->        </form>
+<div class="table-data" style="margin: auto; width: 50%; text-align: left;"> <!-- Centering the table and adjusting width -->
+    <div class="order">
+        <div class="head">
+            <h3>Update Role</h3>
+            <i class='bx bx-search' ></i>
+            <i class='bx bx-filter' ></i>
         </div>
-       
+    <!-- Navbar End -->
+    <div class="container">
+        <?php
+        // Affichage du formulaire avec les données de l'utilisateur à mettre à jour
+        if (isset($_POST['id_role'])) {
+            $rols = $RoleM->showRoleC($_POST['id_role']);
+        ?>
+        <form id="RoleForm" method="POST"> <!-- Ensure you specify the method as POST -->
+                <div class="mb-3">
+                <label for="id_role" class="form-label">Id role</label>
+                <input type="text" class="form-control" id="id_role" name="id_role" value="<?php echo $_POST['id_role'] ?>" style="margin-left: auto; margin-right: auto; display: block;">
+                <span id="erreurNom" style="color: red"></span>
+                </div>
+                <div class="mb-3 row">
+                    <label for="type" class="col-sm-2 col-form-label">Type</label>
+                    
+                        <input type="text" class="form-control" id="type" name="type" style="margin-left: auto; margin-right: auto; display: block;">
+                        <span id="erreurnom" style="color: red"></span>
+                  
+                </div>
+               
+                <button type="submit" class="btn btn-primary" style="display: block; margin: 20px auto 0; background-color: #007bff; color: #fff; padding: 10px 20px; font-size: 1.2rem; border: none; border-radius: 5px;">Save</button> 
+            </form>
+        <?php
+       } ?>
     </div>
-</main>
-<!-- MAIN -->
+    <script src="asset/java/script.js"></script>
 
-
-
-	</section>
-	<!-- CONTENT -->
-	
-
-	<script src="asset/java/script.js"></script>
-    
 </body>
-</html>
 
+</html>

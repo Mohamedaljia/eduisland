@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +31,7 @@
                     <span class="text">Dashboard</span>
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="listUser.php">
                     <i class='bx bxs-user'></i>
                     <span class="text">Users</span>
@@ -59,7 +61,7 @@
                     <span class="text">Events</span>
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="listreclam.php">
                     <i class='bx bxs-megaphone'></i>
                     <span class="text">Reclamation</span>
@@ -90,7 +92,7 @@
 	<section id="content">
 		<!-- NAVBAR -->
 		<nav>
-			<i class='bx bx-menu' ></i>
+			<i class='bx bx-menu' ></i>		
 		</nav>
 		<!-- NAVBAR -->
 
@@ -98,10 +100,10 @@
 		<main>
 			<div class="head-title">
 				<div class="left">
-					<h1>Reclamation</h1>
+					<h1>Roles</h1>
 					<ul class="breadcrumb">
 						<li>
-							<a href="#">Reclamation</a>
+							<a href="#">list of Roles</a>
 						</li>
 						<li><i class='bx bx-chevron-right' ></i></li>
 						<li>
@@ -109,8 +111,9 @@
 						</li>
 					</ul>
 				</div>
-                <a href="sta.php" class="btn-download">
-                     <span class="text">Statestic of subject</span>
+                <a href="addRole.php" class="btn-download">
+                    
+                    <span class="text">Add Role  </span>
                 </a>
 			</div>
 
@@ -119,58 +122,65 @@
 			<div class="table-data">
     <div class="table-data order">
         <div class="head">
-            <h3>List of reclam</h3>
+            <h3>List of Roles</h3>
         </div>
-        <table class="table table-hover text-center">
-       
-            <tbody>
                 
-                    <table class="table" align="center">
-                        <thead>
-                            <tr>
-                                <th>IdR</th>
-                                <th>IdU</th>
-                                <th>Subject</th>
-                                <th>Description</th>
-                                <th>Feedback</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php 
-                            include '../controller/reclamC.php';
-                            $c = new reclamsC();
-                            $tab = $c->listreclam();
-                            foreach ($tab as $reclam) : ?>
-                                <tr>
-                                    <td><?= $reclam['idR']; ?></td>
-                                    <td><?= $reclam['idU']; ?></td>
-                                    <td><?= $reclam['subjectt']; ?></td>
-                                    <td><?= $reclam['descriptionn']; ?></td>
-                                    <td><?= $reclam['feedback']; ?></td>
-                                    <td>
-                                        <a href="deletreclam.php?id=<?= $reclam['idR']; ?>">Delete</a>
-                                    </td>
-                                    <td>
-                                        <a href="reponseF.php?id=<?= $reclam['idR']; ?>">Traiter</a>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
+            
+        <table class="table table-hover text-center">
+                     
+                <?php 
+                    include "../controller/Role.php";
+                    $c = new Role();
+                     $tab = $c->listRoleC();
 
-                    <center style="margin-top: 20px;">
-                        <form method="POST" action="updatereclam.php">
-                            <input type="submit" name="update" value="Update" style="display: block; margin: 20px auto 0; background-color: #007bff; color: #fff; padding: 10px 20px; font-size: 1.2rem; border: none; border-radius: 5px;">
-                        </form>
-                    </center>
-             </tbody>
-         </table>
+                ?>    
+            <tbody>
+                <table class="table" align="center">    
+                    <thead>         
+                        <tr>
+                            <th>Id Role</th>
+                            <th>Type</th>
+                        </tr>
+                        
+                    </thead>
+                    <tbody>
+                            <?php
+                            foreach ($tab as $Role) {
+                            ?>
+
+                                <tr>
+                                    <td><?= $Role['id_role']; ?></td>
+                                    <td><?= $Role['type']; ?></td>
+                                    <td align="center">
+                                        <form method="POST" action="updateRole.php">
+                                            <input type="submit" name="update" value="Update" style="display: block; margin: 20px auto 0; background-color: #007bff; color: #fff; padding: 5px 10px; font-size: 1rem; border: none; border-radius: 3px;">
+                                            <input type="hidden" value="<?php echo $Role['id_role']; ?>" name="id_role">
+                                        </form>
+                                        
+                                    </td>
+                                    <td>
+                                    <a href="deleteRole.php?id_role=<?php echo $Role['id_role']; ?>">Delete</a>
+                                </td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                    </tbody>
+                </table>
+            </tbody>
+
+
+    <!--<center style="margin-top: 20px;">
+        <form method="POST" action="updateRole.php">
+            <input type="submit" name="update" value="Update" style="display: block; margin: 20px auto 0; background-color: #007bff; color: #fff; padding: 10px 20px; font-size: 1.2rem; border: none; border-radius: 5px;">
+        </form>
+    </center>-->
+
     </div>
      </div>
                                     
-			</div>
-		</main>
+		</div>
+	</main>
 		<!-- MAIN -->
 	</section>
 	<!-- CONTENT -->
@@ -179,4 +189,5 @@
 	<script src="asset/java/script.js"></script>
     
 </body>
+
 </html>
