@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,9 +30,18 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+
+
+    
+
+
 </head>
 
 <body>
+  
+
+    
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -42,11 +52,7 @@
 
 
     <!-- Navbar Start -->
-    <div class="container py-4">
-        <div class="text-center">
-            <a href="http://localhost/2a27/view/addExams.php" class="btn btn-primary btn-lg">ADD</a>
-        </div>
-    </div>
+    
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>EDUISLAND</h2>
@@ -60,8 +66,6 @@
                 <a href="about.html" class="nav-item nav-link">About</a>
                 <a href="courses.html" class="nav-item nav-link active">Courses</a>
                 <a href="gestion.html" class="nav-item nav-link active">Exams</a>
-                <a href="view/forum.php" class="nav-item nav-link active">reclamation</a>
-
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu fade-down m-0">
@@ -105,6 +109,7 @@
                 <h6 class="section-title bg-white text-center text-primary px-3">Categories</h6>
                 <h1 class="mb-5">Exams Categories</h1>
             </div>
+            
             <div class="row g-3">
                 <div class="col-lg-7 col-md-6">
                     <div class="row g-3">
@@ -114,6 +119,8 @@
                                 
                             </a>
                         </div>
+                        <!-- Add this code where you want to display the image -->
+
                         <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
                             <a class="position-relative d-block overflow-hidden" href="">
                                 <img class="img-fluid" src="img/prot.png" alt="">
@@ -126,6 +133,63 @@
                                
                             </a>
                         </div>
+                        
+                         <!-- Display Uploaded Images -->
+                         
+                         
+                         
+                         
+                         
+                         <div class="gallery"></div>
+                         <head>
+                          
+                            <!-- Emplacement du formulaire -->
+
+                                       
+
+
+
+   <script>
+      window.onload = function() {
+    var gallery = document.querySelector('.gallery');
+    var directory = "view/uploads";
+    var fileExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+
+    function isImage(filename) {
+        var ext = filename.split('.').pop().toLowerCase();
+        return fileExtensions.indexOf(ext) !== -1;
+    }
+
+    fetch(directory)
+    .then(response => response.text())
+    .then(data => {
+        console.log("Fetched data:", data);
+        var parser = new DOMParser();
+        var html = parser.parseFromString(data, 'text/html');
+        console.log("Parsed HTML:", html);
+        var links = html.querySelectorAll('a'); 
+        console.log("Found links:", links);
+
+        links.forEach(function(link) {
+            var filename = link.getAttribute('href');
+            if (isImage(filename)) {
+                var img = document.createElement('img');
+                var imageUrl = directory + '/' + filename; // Concatenate directory and filename
+                console.log("Image URL:", imageUrl);
+                img.src = imageUrl;
+                img.alt = filename;
+                img.classList.add('img-fluid'); // Add Bootstrap class for responsive images
+                img.style.maxWidth = '100%'; // Set maximum width to 100%
+                img.style.height = 'auto'; // Allow the height to adjust automatically while maintaining aspect ratio
+                gallery.appendChild(img);
+            }
+        });
+    })
+    .catch(error => console.error('Error fetching images:', error));
+};
+
+
+   </script>
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
@@ -139,7 +203,17 @@
         </div>
     </div>
     <!-- Categories Start -->
-
+    <div class="container-xxl py-5 category">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Categories</h6>
+                <h1 class="mb-5">Exams Categories</h1>
+            </div>
+            <div class="row g-3" id="imageContainer">
+                <!-- Images will be dynamically added here -->
+            </div>
+        </div>
+    </div>
 
     <!-- Courses Start -->
     <div class="container-xxl py-5">
@@ -227,7 +301,61 @@
         </div>
     </div>
     <!-- Courses End -->
+   
+<!-- Display Uploaded Images -->
+<div class="container-xxl py-5 category">
+    <div class="container">
+        <div class="row g-3" id="imageContainer">
+            <!-- Images will be dynamically added here -->
+        </div>
+    </div>
+</div>
 
+<script>
+    window.onload = function () {
+        var imageContainer = document.getElementById('imageContainer');
+        var directory = "C:\xampp\htdocs\inegration(amjed,lina)\projetWEB\view\uploads"; // Directory where images are stored
+        var fileExtensions = ['jpg', 'jpeg', 'png', 'gif']; // Allowed file extensions
+
+        // Function to check if a filename has an allowed extension
+        function isImage(filename) {
+            var ext = filename.split('.').pop().toLowerCase();
+            return fileExtensions.indexOf(ext) !== -1;
+        }
+
+        // Fetch the contents of the directory
+        fetch(directory)
+            .then(response => response.text())
+            .then(data => {
+                // Split the data into lines
+                var lines = data.split('\n');
+                lines.forEach(function (line) {
+                    var filename = line.trim();
+                    if (isImage(filename)) {
+                        // Create an <img> element for each image
+                        var img = document.createElement('img');
+                        var imageUrl = directory + '/' + filename; // Image URL
+                        img.src = imageUrl;
+                        img.alt = filename;
+                        img.classList.add('img-fluid'); // Add Bootstrap class for responsive images
+                        img.style.maxWidth = '100%'; // Set maximum width to 100%
+                        img.style.height = 'auto'; // Allow the height to adjust automatically while maintaining aspect ratio
+                        // Create a <div> to contain the image and add it to the container
+                        var columnDiv = document.createElement('div');
+                        columnDiv.classList.add('col-lg-6', 'col-md-12', 'wow', 'zoomIn');
+                        columnDiv.setAttribute('data-wow-delay', '0.5s');
+                        var linkElement = document.createElement('a');
+                        linkElement.classList.add('position-relative', 'd-block', 'overflow-hidden');
+                        linkElement.href = '#';
+                        linkElement.appendChild(img);
+                        columnDiv.appendChild(linkElement);
+                        imageContainer.appendChild(columnDiv);
+                    }
+                });
+            })
+            .catch(error => console.error('Error fetching images:', error));
+    };
+</script>
 
     
         
@@ -328,6 +456,9 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    
+
 </body>
 
 </html>

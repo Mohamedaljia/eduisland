@@ -98,20 +98,20 @@ if (
 
 	<!-- SIDEBAR -->
 	<section id="sidebar">
-    <a href="forum.php" class="brand">
+    <a href="../index.html" class="brand">
       <!-- <img src="asset/img/icon.png" alt="AzulTunes Logo" class="logo">-->
       <span class="text"><i class="fa fa-book me-3"></i>EDUISLAND</span>
     </a>
 
 		<ul class="side-menu top">
-            <li class="active">
+            <li >
                 <a href="test.php">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="listUser.php">
                     <i class='bx bxs-user'></i>
                     <span class="text">Users</span>
                 </a>
@@ -140,7 +140,7 @@ if (
                     <span class="text">Events</span>
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="listreclam.php">
                     <i class='bx bxs-megaphone'></i>
                     <span class="text">Reclamation</span>
@@ -172,21 +172,9 @@ if (
 		<!-- NAVBAR -->
 		<nav>
 			<i class='bx bx-menu' ></i>
-	
-			<form action="#">
-			
-			</form>
-			<input type="checkbox" id="switch-mode" hidden>
-			<label for="switch-mode" class="switch-mode"></label>
-			<a href="#" class="notification">
-				<i class='bx bxs-bell' ></i>
-				<span class="num">8</span>
-			</a>
-			<a href="#" class="profile">
-				<img src="asset/img/ena">
-			</a>
 		</nav>
 		<!-- NAVBAR -->
+
 
 	<!-- MAIN -->
     <main style="text-align: center;">
@@ -208,13 +196,21 @@ if (
         </a>
     </div>
 
+
+
+<div class="table-data">
+<div class="table-data order">
+<table class="table" align="center">
+    <tbody>
+
+
+
     <div class="table-data" style="margin: auto; width: 60%; text-align: left;">
         <div class="container" style="margin: auto; width: 60%; text-align: left;">
             <div class="head" style="color: #3C7AE9;">
                 <h3>Traiter les reclamtion</h3>
-                
                 <i class='bx bx-plus'></i>
-            <i class='bx bx-filter'></i>
+                <i class='bx bx-filter'></i>
             </div>
             <form id="reponseForm" method="POST">
                 <div class="mb-3">
@@ -233,7 +229,7 @@ if (
         </div>
     </div>
 
-    <div class="todo" style="margin: auto; width: 80%; text-align: left;">
+    <div class="container mt-5" style="margin: auto; width: 80%; text-align: left;">
         <div class="head" style="color: #3C7AE9;">
             <h3>Search</h3>
             <i class='bx bx-search'></i>
@@ -257,9 +253,10 @@ if (
             </form>
             <?php if (isset($reclams)) { ?>
                 <div class="mt-5">
-                    <h2 style="color: #2B67D0;">Réclamations correspondantes :</h2>
+  
                     <div class="table-responsive">
                         <table class="table table-bordered" style="width: 100%;">
+                        <h2 style="color: #2B67D0;">Réclamations correspondantes :</h2>
                             <thead>
                                 <tr>
                                 <th style="color: #2B67D0; font-weight: normal;">ID Réclamation</th>

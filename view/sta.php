@@ -36,21 +36,21 @@
 
 <!-- SIDEBAR -->
 <section id="sidebar">
-    <a href="forum.php" class="brand">
-        <span class="text"><i class="fa fa-book me-3"></i>EDUISLAND</span>
-        
+<a href="../index.html" class="brand">
+      <!-- <img src="asset/img/icon.png" alt="AzulTunes Logo" class="logo">-->
+      <span class="text"><i class="fa fa-book me-3"></i>EDUISLAND</span>
     </a>
 
     <ul class="side-menu top">
         <ul class="side-menu top">
-            <li class="active">
+            <li>
                 <a href="test.php">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="listUser.php">
                     <i class='bx bxs-user'></i>
                     <span class="text">Users</span>
                 </a>
@@ -79,7 +79,7 @@
                     <span class="text">Events</span>
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="listreclam.php">
                     <i class='bx bxs-megaphone'></i>
                     <span class="text">Reclamation</span>
