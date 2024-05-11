@@ -146,7 +146,7 @@ if (
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
                     <a href="../index.html" class="nav-item nav-link active">Home</a>
                     <a href="../about.html" class="nav-item nav-link">About</a>
-                    <a href="../courses.html" class="nav-item nav-link">Courses</a>
+                    <a href="../frontoff/cours.php" class="nav-item nav-link">Courses</a>
                     <a href="../gestion.html" class="nav-item nav-link active">Exams</a>
                     <a href="forum.php" class="nav-item nav-link active">Reclamation</a>
 

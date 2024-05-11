@@ -55,6 +55,18 @@ $tab = $c->listcertif();
                 </a>
             </li>
             <li>
+                <a href="backoff/index.php">
+                    <i class='indexcours'></i>
+                    <span class="text">Course</span>
+                </a>
+            </li>
+            <li>
+                <a href="backoff/add-cours.php">
+                    <i class='addcourse'></i>
+                    <span class="text">Add Course</span>
+                </a>
+            </li>
+            <li>
                 <a href="#">
                     <i class='bx bxs-bar-chart-alt-2'></i>
                     <span class="text">Deals</span>
