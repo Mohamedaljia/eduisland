@@ -84,22 +84,28 @@ try {
     </a>
 
 		<ul class="side-menu top">
-            <li>
-                <a href="#">
+        <li>
+                <a href="../test.php">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="../listUser.php">
                     <i class='bx bxs-user'></i>
                     <span class="text">Users</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="../addExams.php">
                     <i class='bx bxs-pie-chart-alt-2'></i>
-                    <span class="text">Forum</span>
+                    <span class="text">Exams</span>
+                </a>
+            </li>
+            <li>
+                <a href="../addCertif.php">
+                    <i class='bx bxs-group'></i>
+                    <span class="text">certificate</span>
                 </a>
             </li>
             <li class="active">
@@ -124,6 +130,12 @@ try {
                 <a href="#">
                     <i class='bx bxs-megaphone'></i>
                     <span class="text">Claims</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="../listreclam.php">
+                    <i class='bx bxs-megaphone'></i>
+                    <span class="text">Reclamation</span>
                 </a>
             </li>
         </ul>

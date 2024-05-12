@@ -45,48 +45,60 @@ include '../../../controller/coursC.php'; // Assure-toi que le chemin vers le co
 </a>
 
     <ul class="side-menu top">
-        <li>
-            <a href="#">
-                <i class='bx bxs-dashboard'></i>
-                <span class="text">Dashboard</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class='bx bxs-user'></i>
-                <span class="text">Users</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class='bx bxs-pie-chart-alt-2'></i>
-                <span class="text">Forum</span>
-            </a>
-        </li>
-        <li >
-            <a href="index.php">
-                <i class='bx bxs-group'></i>
-                <span class="text">Courses</span>
-            </a>
-        </li>
-        <li class="active">
-            <a href="add-cours.php">
-                <i class='bx bxs-bar-chart-alt-2'></i>
-                <span class="text">Add Course</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class='bx bxs-calendar-event'></i>
-                <span class="text">Events</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class='bx bxs-megaphone'></i>
-                <span class="text">Claims</span>
-            </a>
-        </li>
+    <li>
+                <a href="../test.php">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="../listUser.php">
+                    <i class='bx bxs-user'></i>
+                    <span class="text">Users</span>
+                </a>
+            </li>
+            <li>
+                <a href="../addExams.php">
+                    <i class='bx bxs-pie-chart-alt-2'></i>
+                    <span class="text">Exams</span>
+                </a>
+            </li>
+            <li>
+                <a href="../addCertif.php">
+                    <i class='bx bxs-group'></i>
+                    <span class="text">certificate</span>
+                </a>
+            </li>
+            <li >
+                <a href="index.php">
+                    <i class='bx bxs-group'></i>
+                    <span class="text">Courses</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="add-cours.php">
+                    <i class='bx bxs-bar-chart-alt-2'></i>
+                    <span class="text">Add course</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-calendar-event'></i>
+                    <span class="text">Events</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-megaphone'></i>
+                    <span class="text">Claims</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="../listreclam.php">
+                    <i class='bx bxs-megaphone'></i>
+                    <span class="text">Reclamation</span>
+                </a>
+            </li>
     </ul>
 <ul class="side-menu">
 <li>

@@ -80,27 +80,28 @@ if(isset($_GET['id'])) {
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="../about.html">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="cours.php">Courses</a>
+                        <a class="nav-link active" aria-current="page" href="cours.php">Courses</a>
                     </li>
+                    <a href="../gestion.html" class="nav-item nav-link ">Exams</a>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Pages
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item " href="#">Our Team</a></li>
+                            <li><a class="dropdown-item" href="../team.html">Our Team</a></li>
+                            <a href="../testimonial.html" class="dropdown-item">Testimonial</a>
                             
-                            <li><a class="dropdown-item " href="# ">tests</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item ">
-                        <a class="nav-link " href="# ">Contact</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../contact.html">Contact</a>
                     </li>
                 </ul>
                 <button class="btn btn-primary d-none d-lg-block ">Join Now <i class="fas fa-arrow-right ms-3 "></i></button>
