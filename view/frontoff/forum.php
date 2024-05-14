@@ -1,7 +1,7 @@
 <?php
-include '../controller/coursC.php';
-include '../config.php';
-include '../controller/typecoursC.php';
+include '../../controller/coursC.php';
+include '../../config/connexion.php';
+include '../../controller/typecoursC.php';
 
 if(isset($_GET['id'])) {
     // Récupérer et nettoyer l'ID de cours de l'URL

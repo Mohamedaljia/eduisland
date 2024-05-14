@@ -19,10 +19,42 @@ closeButton.onclick = function() {
 
 // Fermer le modal lorsque l'utilisateur clique en dehors du contenu du modal
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
     }
+    // Générer et afficher le code QR dès le chargement de la page
+document.addEventListener('DOMContentLoaded', function() {
+    //generateQRCode();
+});
+
+// Fonction pour générer et afficher le code QR
+function generateQRCode() {
+    var matiere = document.getElementById('matiere').value;
+    var niveau = document.getElementById('niveau').value;
+    var nbheure = document.getElementById('nbheure').value;
+    var idt = document.getElementById('idt').value;
+
+    // Génération du texte pour le code QR
+    var qrText = "Course: " + matiere + ", Level: " + niveau + ", Hours: " + nbheure + ", Teacher ID: " + idt;
+
+    // Générer le code QR et l'afficher dans le conteneur avec l'ID "qrcode"
+    var qrcode = new QRCode(document.getElementById("qrcode"), {
+        text: qrText,
+        width: 128,
+        height: 128,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+    });
+
+    // Afficher le conteneur du code QR
+    document.getElementById("qrcode").style.display = "block";
+
+    // Empêcher le formulaire de se soumettre normalement
+    return false;
 }
+
 
 
 // Contrôle de saisie des champs du formulaire
@@ -33,7 +65,6 @@ function validateForm(event) {
     var idt = document.getElementById('idt').value;
     var matiereInput = document.getElementById('matiere').value;
     var validCourses = ['French', 'English', 'Italian', 'Spanish', 'Portuguese'];
-
 
     // Expression régulière pour vérifier si le champ matiere ne contient que des lettres
     var regexMatiere = /^[A-Za-z ]+$/;
@@ -90,22 +121,12 @@ allSideMenu.forEach(item => {
     })
 });
 
-
-
-
-// TOGGLE SIDEBAR
 const menuBar = document.querySelector('#content nav .bx.bx-menu');
 const sidebar = document.getElementById('sidebar');
 
 menuBar.addEventListener('click', function() {
     sidebar.classList.toggle('hide');
 })
-
-
-
-
-
-
 
 const searchButton = document.querySelector('#content nav form .form-input button');
 const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
@@ -123,10 +144,6 @@ searchButton.addEventListener('click', function(e) {
     }
 })
 
-
-
-
-
 if (window.innerWidth < 768) {
     sidebar.classList.add('hide');
 } else if (window.innerWidth > 576) {
@@ -134,15 +151,12 @@ if (window.innerWidth < 768) {
     searchForm.classList.remove('show');
 }
 
-
 window.addEventListener('resize', function() {
     if (this.innerWidth > 576) {
         searchButtonIcon.classList.replace('bx-x', 'bx-search');
         searchForm.classList.remove('show');
     }
 })
-
-
 
 const switchMode = document.getElementById('switch-mode');
 

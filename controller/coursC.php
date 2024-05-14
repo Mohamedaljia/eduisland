@@ -1,6 +1,6 @@
 <?php
 
-include  '../config.php';
+include  '../../config/connexion.php';
 include  '../../model/cours.php';
     
 $cours = new Cours($conn);

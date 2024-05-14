@@ -1,8 +1,8 @@
 <?php
-include '../../config.php';
+include '../../config/connexion.php';
 
-include '../../../controller/typecoursC.php';
-include '../../../controller/coursC.php';
+include '../../controller/typecoursC.php';
+include '../../controller/coursC.php';
 
 try {
     // Requête SQL pour compter le nombre d'enregistrements pour chaque matière
@@ -132,7 +132,7 @@ try {
                     <span class="text">Claims</span>
                 </a>
             </li>
-            <li class="active">
+            <li >
                 <a href="../listreclam.php">
                     <i class='bx bxs-megaphone'></i>
                     <span class="text">Reclamation</span>

@@ -1,6 +1,6 @@
 <?php
-include '../../config.php';
-include '../../../controller/coursC.php'; // Assure-toi que le chemin vers le contrôleur est correct
+include '../../config/connexion.php';
+include '../../controller/coursC.php'; // Assure-toi que le chemin vers le contrôleur est correct
 
 
 ?>
@@ -168,8 +168,10 @@ include '../../../controller/coursC.php'; // Assure-toi que le chemin vers le co
     <div class="modal-content">
         <span class="close">&times;</span>
         
-        <!-- Formulaire pour ajouter un cours -->
-        <form onsubmit="return validateForm()" method="post" class="formulaire_cours" name="addCourseForm" >
+       
+
+<!-- Formulaire pour ajouter un cours -->
+<form onsubmit="return validateForm()" method="post" class="formulaire_cours" name="addCourseForm">
             <label for="matiere">Course:</label>
             <select id="matiere" name="matiere">
             <option value="Subject">Subject</option>
@@ -203,10 +205,13 @@ include '../../../controller/coursC.php'; // Assure-toi que le chemin vers le co
             
             <input type="submit" name="submit_Add" value="Add Course">
         </form>
+ 
 
     </div>
-    
+        
+
 </div>
+
 <!-- Affichage du message -->
 <?php if(isset($_GET['message'])): ?>
             <?php if ($_GET['message'] != 1): ?>
@@ -216,11 +221,12 @@ include '../../../controller/coursC.php'; // Assure-toi que le chemin vers le co
             <?php endif; ?>
         <?php endif; ?>
 
-
+        <div id="qrcode"></div>
 
     </main>
 </section>
-
+                <!-- Liens vers les fichiers JavaScript -->
+<script src="assets/js/qrcode.min.js"></script>
     <!-- Liens vers les fichiers JavaScript -->
     <script src="assets/js/cours.js"></script>
     <!-- Footer -->

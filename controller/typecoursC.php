@@ -1,6 +1,6 @@
 <?php
 
-include  '../config.php';
+include  '../../config/connexion.php';
 include  '../../model/typecours.php';
 
 // Création d'une instance de la classe Typecours
