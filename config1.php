@@ -9,9 +9,9 @@ class config
         if (!isset(self::$pdo)) {
             try {
                 self::$pdo = new PDO(
-                    'mysql:host=localhost;dbname=dev',
+                    'mysql:host=localhost;dbname=projectdba',
                     'root',
-                    '',
+                    'Rubyboubi2020',
                     [
                         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC

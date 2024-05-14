@@ -2,7 +2,7 @@
 
 <?php
 
-require '../config.php';
+include '../config1.php';
 
 class reclamsC
 {

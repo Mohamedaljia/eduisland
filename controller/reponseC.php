@@ -1,6 +1,6 @@
 <?php
 
-require '../config1.php';
+include '../config1.php';
 
 class ReponsesC
 {

@@ -114,12 +114,7 @@ try {
                     <span class="text">Courses</span>
                 </a>
             </li>
-            <li>
-                <a href="add-cours.php">
-                    <i class='bx bxs-bar-chart-alt-2'></i>
-                    <span class="text">Add course</span>
-                </a>
-            </li>
+           
             <li>
                 <a href="#">
                     <i class='bx bxs-calendar-event'></i>
@@ -138,6 +133,12 @@ try {
                     <span class="text">Reclamation</span>
                 </a>
             </li>
+            <li >
+            <a href="add-profile.php">
+                <i class='bx bxs-dashboard'></i>
+                <span class="text">partenaire</span>
+            </a>
+        </li>
         </ul>
 <ul class="side-menu">
     <li>
@@ -189,15 +190,24 @@ try {
     
     <!-- MAIN -->
     <main>
-    <div class="conta">
-        <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center bg-transparent">
-                            <li class="breadcrumb-item"><a href="#" class="text-white">Home</a></li>
-                            <li class="breadcrumb-item"><a href="index.php" aria-current="page" class="text-white">List</a></li>
-                            <li class="breadcrumb-item"><a href="add-cours.php" class="text-white">add Courses</a></li>
-                        </ol>
-        </nav>  
-    </div>
+    <div class="left">
+					<h1>List Course</h1>
+                    
+					<ul class="breadcrumb">
+                    <li>
+							<a href="#">Home</a>
+						</li>
+                    <li><i class='bx bx-chevron-right' ></i></li>
+                        <li>
+							<a href="index.php">Courses</a>
+						</li>
+						<li><i class='bx bx-chevron-right' ></i></li>
+						<li>
+							<a class="active" href="add-cours.php">Add Course</a>
+						</li>
+					</ul>
+				</div>
+    
     <div class="table-data">
        
     <div class="table-data order">

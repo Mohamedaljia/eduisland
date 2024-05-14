@@ -58,13 +58,13 @@ include '../../controller/coursC.php'; // Assure-toi que le chemin vers le contr
                 </a>
             </li>
             <li>
-                <a href="../addExams.php">
+                <a href="../listExams.php">
                     <i class='bx bxs-pie-chart-alt-2'></i>
                     <span class="text">Exams</span>
                 </a>
             </li>
             <li>
-                <a href="../addCertif.php">
+                <a href="../listCertif.php">
                     <i class='bx bxs-group'></i>
                     <span class="text">certificate</span>
                 </a>
@@ -75,12 +75,7 @@ include '../../controller/coursC.php'; // Assure-toi que le chemin vers le contr
                     <span class="text">Courses</span>
                 </a>
             </li>
-            <li class="active">
-                <a href="add-cours.php">
-                    <i class='bx bxs-bar-chart-alt-2'></i>
-                    <span class="text">Add course</span>
-                </a>
-            </li>
+            
             <li>
                 <a href="#">
                     <i class='bx bxs-calendar-event'></i>
@@ -93,12 +88,18 @@ include '../../controller/coursC.php'; // Assure-toi que le chemin vers le contr
                     <span class="text">Claims</span>
                 </a>
             </li>
-            <li class="active">
+            <li >
                 <a href="../listreclam.php">
                     <i class='bx bxs-megaphone'></i>
                     <span class="text">Reclamation</span>
                 </a>
             </li>
+            <li >
+            <a href="add-profile.php">
+                <i class='bx bxs-dashboard'></i>
+                <span class="text">partenaire</span>
+            </a>
+        </li>
     </ul>
 <ul class="side-menu">
 <li>
@@ -149,15 +150,23 @@ include '../../controller/coursC.php'; // Assure-toi que le chemin vers le contr
     <!-- NAVBAR -->
     <!-- MAIN -->
     <main>
-    <div class="conta">
-        <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center bg-transparent">
-                            <li class="breadcrumb-item"><a href="#" class="text-white">Home</a></li>
-                            <li class="breadcrumb-item"><a href="index.php" aria-current="page" class="text-white">List</a></li>
-                            <li class="breadcrumb-item"><a href="add-cours.php" class="text-white">add Courses</a></li>
-                        </ol>
-        </nav>  
-    </div>
+    <div class="left">
+					<h1>List Course</h1>
+                    
+					<ul class="breadcrumb">
+                    <li>
+							<a href="#">Home</a>
+						</li>
+                    <li><i class='bx bx-chevron-right' ></i></li>
+                        <li>
+							<a href="index.php">Courses</a>
+						</li>
+						<li><i class='bx bx-chevron-right' ></i></li>
+						<li>
+							<a class="active" href="add-cours.php">Add Course</a>
+						</li>
+					</ul>
+				</div>
 
     <!-- Bouton d'ouverture du modal -->
 <button id="openModalBtn">Add Course</button>

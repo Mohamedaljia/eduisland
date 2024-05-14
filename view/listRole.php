@@ -55,12 +55,7 @@
                     <span class="text">Course</span>
                 </a>
             </li>
-            <li>
-                <a href="backoff/add-cours.php">
-                    <i class='addcourse'></i>
-                    <span class="text">Add Course</span>
-                </a>
-            </li>
+            
             <li>
                 <a href="#">
                     <i class='bx bxs-bar-chart-alt-2'></i>
@@ -79,6 +74,12 @@
                     <span class="text">Reclamation</span>
                 </a>
             </li>
+            <li >
+            <a href="backoff/indexprofile.php">
+                <i class='bx bxs-dashboard'></i>
+                <span class="text">partenaire</span>
+            </a>
+        </li>
         </ul>
 <ul class="side-menu">
     <li>
