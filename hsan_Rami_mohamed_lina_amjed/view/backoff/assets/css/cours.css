@@ -1,0 +1,441 @@
+.message-container {
+    max-width: 600px;
+    margin: 10px;
+}
+
+.error-message {
+    color: #d9534f;
+    background-color: #f2dede;
+    border: 1px solid #d9534f;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.success-message {
+    color: #5cb85c;
+    background-color: #dff0d8;
+    border: 1px solid #5cb85c;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+
+/* Style du modal */
+
+.modal {
+    display: none;
+    /* Masquer par défaut */
+    position: fixed;
+    /* Position fixe */
+    z-index: 1;
+    /* Au-dessus de tout */
+    left: 90;
+    top: 0;
+    width: 200px;
+    height: 700px;
+    overflow: auto;
+    /* Activer le défilement si nécessaire */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fond noir semi-transparent */
+    backdrop-filter: blur(5px);
+    /* Effet de flou */
+    display: flex;
+    /* Utiliser le modèle flexbox */
+    align-items: center;
+    /* Centrer verticalement */
+    justify-content: center;
+    /* Centrer horizontalement */
+}
+
+
+/* Contenu du modal */
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 1% auto;
+    /* Centrer le contenu */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    width: 100%;
+    /* Utilisation de 100% de la largeur */
+    max-width: 500px;
+    /* Largeur maximale si nécessaire */
+}
+
+
+/* Fermer le bouton */
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Style du bouton d'ouverture du modal */
+
+#openModalBtn {
+    background-color: #00b7ff;
+    /* Couleur de fond */
+    color: #fff;
+    /* Couleur du texte */
+    padding: 10px 20px;
+    /* Espacement intérieur */
+    border: none;
+    /* Supprimer la bordure */
+    border-radius: 8px;
+    /* Coins arrondis */
+    cursor: pointer;
+    /* Curseur pointeur */
+    font-size: 16px;
+    /* Taille de police */
+}
+
+
+/* Style du bouton d'ouverture du modal au survol */
+
+#openModalBtn:hover {
+    background-color: #009fce;
+    /* Couleur de fond au survol */
+}
+
+
+/* Style du bouton d'ouverture du modal */
+
+#openModalBtn,
+input[type="submit"] {
+    background-color: #00b7ff;
+    /* Couleur de fond */
+    color: #fff;
+    /* Couleur du texte */
+    padding: 10px 20px;
+    /* Espacement intérieur */
+    border: none;
+    /* Supprimer la bordure */
+    border-radius: 8px;
+    /* Coins arrondis */
+    cursor: pointer;
+    /* Curseur pointeur */
+    font-size: 16px;
+    /* Taille de police */
+}
+
+
+/* Style du bouton d'ouverture du modal au survol */
+
+#openModalBtn:hover,
+input[type="submit"]:hover {
+    background-color: #009fce;
+    /* Couleur de fond au survol */
+}
+
+.errormsg {
+    color: red;
+    /* Couleur du texte en rouge */
+    font-size: 14px;
+    /* Taille de la police */
+    margin-top: 5px;
+    /* Marge en haut pour l'espacement */
+    display: block;
+    /* Afficher chaque message sur une nouvelle ligne */
+}
+
+:root {
+    --primary: #06BBCC;
+    --light: #F0FBFC;
+    --dark: #181d38;
+}
+
+.fw-medium {
+    font-weight: 600 !important;
+}
+
+.fw-semi-bold {
+    font-weight: 700 !important;
+}
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+}
+
+
+/*** Spinner ***/
+
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/*** Button ***/
+
+.btn {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    transition: .5s;
+}
+
+.btn.btn-primary,
+.btn.btn-secondary {
+    color: #FFFFFF;
+}
+
+.btn-square {
+    width: 38px;
+    height: 38px;
+}
+
+.btn-sm-square {
+    width: 32px;
+    height: 32px;
+}
+
+.btn-lg-square {
+    width: 48px;
+    height: 48px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    border-radius: 0px;
+}
+
+
+/*** Navbar ***/
+
+.navbar .dropdown-toggle::after {
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    margin-right: 30px;
+    padding: 25px 0;
+    color: #FFFFFF;
+    font-size: 15px;
+    text-transform: uppercase;
+    outline: none;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active {
+    color: var(--primary);
+}
+
+@media (max-width: 991.98px) {
+    .navbar-light .navbar-nav .nav-link {
+        margin-right: 0;
+        padding: 10px 0;
+    }
+    .navbar-light .navbar-nav {
+        border-top: 1px solid #EEEEEE;
+    }
+}
+
+.navbar-light .navbar-brand,
+.navbar-light a.btn {
+    height: 75px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: var(--dark);
+    font-weight: 500;
+}
+
+.navbar-light.sticky-top {
+    top: -100px;
+    transition: .5s;
+}
+
+@media (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu {
+        display: block;
+        margin-top: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: .5s;
+    }
+    .navbar .dropdown-menu.fade-down {
+        top: 100%;
+        transform: rotateX(-75deg);
+        transform-origin: 0% 0%;
+    }
+    .navbar .nav-item:hover .dropdown-menu {
+        top: 100%;
+        transform: rotateX(0deg);
+        visibility: visible;
+        transition: .5s;
+        opacity: 1;
+    }
+}
+
+
+/*** Header carousel ***/
+
+@media (max-width: 768px) {
+    .header-carousel .owl-carousel-item {
+        position: relative;
+        min-height: 500px;
+    }
+    .header-carousel .owl-carousel-item img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.header-carousel .owl-nav {
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+}
+
+.header-carousel .owl-nav .owl-prev,
+.header-carousel .owl-nav .owl-next {
+    margin: 7px 0;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    background: transparent;
+    border: 1px solid #FFFFFF;
+    font-size: 22px;
+    transition: .5s;
+}
+
+.header-carousel .owl-nav .owl-prev:hover,
+.header-carousel .owl-nav .owl-next:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.page-header {
+    background: linear-gradient(rgba(24, 29, 56, .7), rgba(24, 29, 56, .7)), url(img/carousel-1.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.page-header-inner {
+    background: rgba(15, 23, 43, .7);
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    color: var(--light);
+}
+
+
+/*** Section Title ***/
+
+.section-title {
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.section-title::before {
+    position: absolute;
+    content: "";
+    width: calc(100% + 80px);
+    height: 2px;
+    top: 4px;
+    left: -40px;
+    background: var(--primary);
+    z-index: -1;
+}
+
+.section-title::after {
+    position: absolute;
+    content: "";
+    width: calc(100% + 120px);
+    height: 2px;
+    bottom: 5px;
+    left: -60px;
+    background: var(--primary);
+    z-index: -1;
+}
+
+.section-title.text-start::before {
+    width: calc(100% + 40px);
+    left: 0;
+}
+
+.section-title.text-start::after {
+    width: calc(100% + 60px);
+    left: 0;
+}
+
+
+/*** Service ***/
+
+.service-item {
+    background: var(--light);
+    transition: .5s;
+}
+
+.service-item:hover {
+    margin-top: -10px;
+    background: var(--primary);
+}
+
+.service-item * {
+    transition: .5s;
+}
+
+.service-item:hover * {
+    color: var(--light) !important;
+}
+
+
+/*** Categories & Courses ***/
+
+.category img,
+.course-item img {
+    transition: .5s;
+}
+
+.category a:hover img,
+.course-item:hover img {
+    transform: scale(1.1);
+}

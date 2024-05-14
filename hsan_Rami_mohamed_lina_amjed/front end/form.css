@@ -1,0 +1,124 @@
+/* Styles communs pour les deux pages */
+body {
+    background-image: url('picture/bck.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo img {
+    max-width: 150px;
+    height: auto;
+  }
+  
+  .items {
+    display: flex;
+  }
+  
+  .items a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 20px;
+    padding-right: 20px;
+    border-right: 1px solid #ccc;
+    transition: color 0.3s ease;
+  }
+  
+  /* Supprimer la bordure de droite pour le dernier lien */
+  .items a:last-child {
+    border-right: none;
+  }
+  
+  .items a:hover {
+    color: #22ADE4;
+  }
+  
+  .login button,
+  .login button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #22ADE4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .login button:hover,
+  .login button[type="submit"]:hover {
+    background-color: #166697;
+    transform: scale(1.1);
+  }
+  
+  /* Styles spécifiques au formulaire de forum.php */
+  .containeri {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150vh;
+  }
+  
+  .join-form {
+    width: 600px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  textarea {
+    height: 100px;
+  }
+  
+  .main-button,
+  .main-button[type="submit"] {
+    padding: 15px 20px;
+    font-size: 18px;
+    background-color: #22ADE4;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 250px;
+    transition: background-color 0.3s, transform 0.3s;
+    text-decoration: none;
+  }
+  
+  .main-button:hover,
+  .main-button[type="submit"]:hover{
+    background-color: #166697;
+    transform: scale(1.1);
+  }
+  
