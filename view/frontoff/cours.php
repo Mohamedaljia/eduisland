@@ -52,27 +52,27 @@ include '../../config/connexion.php';
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.html">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../about.html">About</a>
+                        <a class="nav-link" href="about.html">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="cours.php">Courses</a>
                     </li>
-                    <a href="../gestion.html" class="nav-item nav-link ">Exams</a>
+                    <a href="gestion.html" class="nav-item nav-link ">Exams</a>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Pages
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="../team.html">Our Team</a></li>
+                            <li><a class="dropdown-item" href="team.html">Our Team</a></li>
                             <a href="../testimonial.html" class="dropdown-item">Testimonial</a>
                             
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../contact.html">Contact</a>
+                        <a class="nav-link" href="contact.html">Contact</a>
                     </li>
                 </ul>
                 <button class="btn btn-primary d-none d-lg-block">Join Now <i class="fas fa-arrow-right ms-3"></i></button>

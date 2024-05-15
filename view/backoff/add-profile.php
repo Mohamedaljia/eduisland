@@ -51,23 +51,13 @@ include '../../controller/controllerprofile.php';
             </li>
             <li >
                 <a href="index.php">
-                    <i class='bx bxs-group'></i>
+                    <i class='bx bxs-calendar-event'></i>
                     <span class="text">Courses</span>
                 </a>
             </li>
             
-            <li>
-                <a href="#">
-                    <i class='bx bxs-calendar-event'></i>
-                    <span class="text">Events</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bxs-megaphone'></i>
-                    <span class="text">Claims</span>
-                </a>
-            </li>
+            
+            
             <li >
                 <a href="../listreclam.php">
                     <i class='bx bxs-megaphone'></i>
@@ -129,11 +119,11 @@ include '../../controller/controllerprofile.php';
 					<h1> profiles Dashboard</h1>
 					<ul class="breadcrumb">
 						<li>
-							<a href="#">Add profiles</a>
+							<a href="add-profile.php">Add profiles</a>
 						</li>
 						<li><i class='bx bx-chevron-right' ></i></li>
 						<li>
-							<a class="active" href="index.php">show partnaire</a>
+							<a class="active" href="index1.php">show partnaire</a>
 						</li>
 					</ul>
 				</div>

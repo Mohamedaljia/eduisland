@@ -102,29 +102,19 @@ try {
                     <span class="text">Exams</span>
                 </a>
             </li>
-            <li>
-                <a href="../addCertif.php">
-                    <i class='bx bxs-group'></i>
-                    <span class="text">certificate</span>
-                </a>
-            </li>
+            
             <li class="active">
                 <a href="index.php">
-                    <i class='bx bxs-group'></i>
+                    <i class='bx bxs-calendar-event'></i>
                     <span class="text">Courses</span>
                 </a>
             </li>
            
-            <li>
-                <a href="#">
-                    <i class='bx bxs-calendar-event'></i>
-                    <span class="text">Events</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bxs-megaphone'></i>
-                    <span class="text">Claims</span>
+           
+            <li >
+                <a href="../readchat.php">
+                    <i class='bx bxs-pie-chart-alt-2'></i>
+                    <span class="text">Chat</span>
                 </a>
             </li>
             <li >
@@ -134,7 +124,7 @@ try {
                 </a>
             </li>
             <li >
-            <a href="add-profile.php">
+            <a href="index1.php">
                 <i class='bx bxs-dashboard'></i>
                 <span class="text">partenaire</span>
             </a>

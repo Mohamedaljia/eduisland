@@ -12,12 +12,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
   $loginResult = $userController->loginUser($email,$password);
   if ($loginResult==1) 
     {
-      $message ="You don't have permission to access this page.";
+      header("Location: ../index.html");
     }
   else
     {
       // Login failed, set error message
-      $message = "Invalid email or password";
+      $message = "You don't have permission to access this page.";
     }
 }
 ?>
@@ -35,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   <!-- MDB -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet">
+  
   <style>
     .cascading-right {
       margin-right: -50px;
@@ -68,11 +69,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
       font-size: smaller;
       color: red;
     }
+    .brand .logo {
+    width: 100px;
+    /* Réglez la largeur de l'image selon vos préférences */
+    height: 70px;
+    /* Réglez la hauteur de l'image selon vos préférences */
+}
   </style>
 </head>
 
 <body>
   <!-- Section: Design Block -->
+  <a href="../index.html" class="brand">
+    <img src="4.png" alt=" Logo" class="logo">
+      <span class="text"><i class=""></i>EDUISLAND</span>
+    </a>
   <section class="text-center text-lg-start">
     <!-- Jumbotron -->
     <div class="container py-4">

@@ -175,8 +175,8 @@ if (
 <!-- SIDEBAR -->
 <section id="sidebar">
 <a href="../index.html" class="brand">
-      <!-- <img src="asset/img/icon.png" alt="AzulTunes Logo" class="logo">-->
-      <span class="text"><i class="fa fa-book me-3"></i>EDUISLAND</span>
+       <img src="4.png" alt=" Logo" class="logo">
+      <span class="text"><i class=""></i>EDUISLAND</span>
     </a>
 
     <ul class="side-menu top">
@@ -203,18 +203,6 @@ if (
                 <a href="http://localhost/inegration(amjed,lina)/projetWEB/view/addCertif.php">
                     <i class='bx bxs-group'></i>
                     <span class="text">certificate</span>
-                </a>
-            </li>
-            <li>
-                <a href="backoff/index.php">
-                    <i class='indexcours'></i>
-                    <span class="text">Course</span>
-                </a>
-            </li>
-            <li>
-                <a href="backoff/add-cours.php">
-                    <i class='addcourse'></i>
-                    <span class="text">Add Course</span>
                 </a>
             </li>
             <li>

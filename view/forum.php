@@ -55,13 +55,13 @@ if (
              $mail->isSMTP();
              $mail->Host = 'smtp.gmail.com';
              $mail->SMTPAuth = true;
-             $mail->Username = 'linatekaya00@gmail.com';  // Replace with your Gmail address
-             $mail->Password = 'hddg gjyu lljj voll';          // Replace with your Gmail password
+             $mail->Username = 'benslimenerami5@gmail.com';  // Replace with your Gmail address
+             $mail->Password = 'aapr vikp odxy qxmb';          // Replace with your Gmail password
              $mail->SMTPSecure = 'tls';
              $mail->Port = 587;
  
              // Sender and recipient settings
-             $mail->setFrom('linatekaya00@gmail.com', 'lina');
+             $mail->setFrom('benslimenerami5@gmail.com', 'Eduisland');
              $mail->addAddress('innaask1608@gmail.com', 'INNA');
  
              // Create email body with form data
@@ -144,10 +144,10 @@ if (
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
-                    <a href="../index.html" class="nav-item nav-link active">Home</a>
+                    <a href="../index.html" class="nav-item nav-link ">Home</a>
                     <a href="../about.html" class="nav-item nav-link">About</a>
-                    <a href="../frontoff/cours.php" class="nav-item nav-link">Courses</a>
-                    <a href="../gestion.html" class="nav-item nav-link active">Exams</a>
+                    <a href="frontoff/cours.php" class="nav-item nav-link">Courses</a>
+                    <a href="../gestion.html" class="nav-item nav-link ">Exams</a>
                     <a href="forum.php" class="nav-item nav-link active">Reclamation</a>
 
                     <div class="nav-item dropdown">

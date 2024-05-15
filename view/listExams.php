@@ -1,4 +1,4 @@
-    <?php
+<?php
     include "../controller/ExamsC.php";
 
     $c = new ExamsC();
@@ -23,8 +23,8 @@
    {
        // Define colors for each niveau
        $colors = [
-           1 => ['#FF5733', 'Orange'], // Easy: Orange
-           2 => ['#33FF49', 'Green'], // Medium: Green
+           1 => ['#8E44AD', 'Orange'], // Easy: Orange
+           2 => ['#F1948A', 'Green'], // Medium: Green
            3 => ['#3362FF', 'Blue']  // Hard: Blue
        ];
    
@@ -47,18 +47,19 @@
 	<!-- My CSS -->
 	<link rel="stylesheet" href="asset/css/add.css">
     
+    
    </head>
    <body>
     <!-- SIDEBAR -->
 	<section id="sidebar">
     <a href="../index.html" class="brand">
-      <!-- <img src="asset/img/icon.png" alt="AzulTunes Logo" class="logo">-->
-      <span class="text"><i class="fa fa-book me-3"></i>EDUISLAND</span>
+       <img src="4.png" alt=" Logo" class="logo">
+      <span class="text"><i class=""></i>EDUISLAND</span>
     </a>
 
     <ul class="side-menu top">
-        <ul class="side-menu top">
-            <li>
+    <ul class="side-menu top">
+        <li>
                 <a href="test.php">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
@@ -70,49 +71,37 @@
                     <span class="text">Users</span>
                 </a>
             </li>
-            <li>
-                <a href="addExams.php">
+            <li  class="active">
+                <a href="listExams.php">
                     <i class='bx bxs-pie-chart-alt-2'></i>
                     <span class="text">EXAMS</span>
                 </a>
             </li>
             <li>
-                <a href="addCertif.php">
-                    <i class='bx bxs-group'></i>
-                    <span class="text">certificate</span>
-                </a>
-            </li>
-            <li>
-                <a href="backoff/index.php">
-                    <i class='indexcours'></i>
-                    <span class="text">Course</span>
+                <a href="readchat.php">
+                    <i class='bx bxs-pie-chart-alt-2'></i>
+                    <span class="text">Chat</span>
                 </a>
             </li>
             
             <li>
-                <a href="#">
-                    <i class='bx bxs-bar-chart-alt-2'></i>
-                    <span class="text">Deals</span>
+                <a href="index.php">
+                    <i class='bx bxs-calendar-event'></i>
+                    <span class="text">cours</span>
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <i class='bx bxs-calendar-event'></i>
-                    <span class="text">Events</span>
-                </a>
-            </li>
-            <li class="active">
                 <a href="listreclam.php">
                     <i class='bx bxs-megaphone'></i>
                     <span class="text">Reclamation</span>
                 </a>
             </li>
-            <li >
-            <a href="backoff/add-profile.php">
-                <i class='bx bxs-dashboard'></i>
-                <span class="text">partenaire</span>
-            </a>
-        </li>
+            <li>
+                <a href="backoff/index1.php">
+                    <i class='bx bxs-bar-chart-alt-2'></i>
+                    <span class="text">Partenaire</span>
+                </a>
+            </li>
         </ul>
 <ul class="side-menu">
     <li>
@@ -158,7 +147,7 @@
         <main>
         <div class="head-title">
 				<div class="left">
-					<h1>Collaborators</h1>
+					
 					<ul class="breadcrumb">
 						<li>
 							<a href="#">Dashboard</a>
@@ -169,15 +158,23 @@
 						</li>
 					</ul>
 				</div>
-				<a href="#" class="btn-download">
-					<i class='bx bxs-cloud-download' ></i>
-					<span class="text">Download PDF</span>
-				</a>
+				
+                <ul class="breadcrumb">
+                    <a href="addExams.php" class="btn-download">
+                        
+                        <span class="text">ADD Exams</span>
+                    </a>
+                    <br>
+                    <a href="listCertif.php" class="btn-download">
+                        
+                        <span class="text">list Certificat</span>
+                    </a>
+                </ul>
 			</div>
             <div class="table-data">
 				<div class="order">
 					<div class="head">
-						<h3>Add New Collab</h3>
+						
 						<i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i>
 					</div>
@@ -205,6 +202,7 @@
            ?>
        </div>
    </div>
+   
    
    <script>
        // Retrieve difficulty data from PHP
@@ -238,42 +236,45 @@
     <center>
         <h1>List of Exams</h1>
         <h2>
-            <a href="addExams.php">Add Exam</a>
+            
         </h2>
     </center>
-    <table border="1" align="center" width="70%" style="border-collapse: collapse; margin-top: 30px;">
-        <tr style="background-color: #f2f2f2;">
-            <th style="padding: 10px;">Id</th>
-            <th style="padding: 10px;">nom</th>
-            <th style="padding: 10px;">typee</th>
-            <th style="padding: 10px;">langue</th>
-            <th style="padding: 10px;">niveau</th>
-            <th style="padding: 10px;">Image</th>
-            <th style="padding: 10px;"></th>
-
-        </tr>
-
+    <table class="table table-hover text-center">
+    <tbody>
+                        <table class="table" align="center">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>nom</th>
+                                    <th>typee</th>
+                                    <th>langue</th>
+                                    <th>niveau</th>
+                                    <th>Image</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
         <?php
         foreach ($tab as $exams) {
         ?>
 
-            <tr style="background-color: #ffffff;">
-                <td style="padding: 10px;"><?= $exams['id']; ?></td>
-                <td style="padding: 10px;"><?= $exams['nom']; ?></td>
-                <td style="padding: 10px;"><?= $exams['typee']; ?></td>
-                <td style="padding: 10px;"><?= $exams['langue']; ?></td>
-                <td style="padding: 10px;"><?= $exams['niveau']; ?></td>
-                <td style="padding: 10px;"><img src="<?= isset($exams['image_path']) ? $exams['image_path'] : '' ?>" alt="Exam Image" style="max-width: 100px; max-height: 100px;"></td>
-
-
-                <td style="padding: 10px; text-align: center;">
-                    <form method="POST" action="updateExams.php">
-                        <input type="submit" name="update" value="Update" style="padding: 5px 10px; background-color: #007bff; color: #fff; border: none; cursor: pointer;">
-                        <input type="hidden" value="<?php echo $exams['id']; ?>" name="id">
-                    </form>
-                    <a href="deleteExams.php?id=<?php echo $exams['id']; ?>" style="color: #dc3545; text-decoration: none; margin-left: 5px;">Delete</a>
-                </td>
-            </tr>
+<tr>
+                                            <td><?= $exams['id']; ?></td>
+                                            <td><?= $exams['nom']; ?></td>
+                                            <td><?php echo isset($exams['typee']) ? $exams['typee'] : ''; ?></td>
+                                            <td><?= $exams['langue']; ?></td>
+                                            <td><?= $exams['niveau']; ?></td>
+                                            <td><img src="<?= isset($exams['image_path']) ? $exams['image_path'] : '' ?>" alt="Exam Image" style="max-width: 100px; max-height: 100px;"></td>
+                                           <td>
+                                                <a href="deleteExams.php?id=<?php echo $exams['id']; ?>">Delete</a>
+                                            </td>                                          
+                                            <td>
+                                                <form method="POST" action="updateExams.php">
+                                                    <input type="submit" name="update" value="Update"  style="display: block; margin: 20px auto 0; background-color: #007bff; color: #fff; padding: 5px 10px; font-size: 1rem; border: none; border-radius: 3px;">
+                                                    <input type="hidden" value="<?php echo $exams['id']; ?>" name="id">
+                                                </form>
+                                            </td>
+                                        </tr>
         <?php
         }
         ?>

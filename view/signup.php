@@ -115,11 +115,20 @@ if (
       font-size: smaller;
       color: red;
     }
-    
+    .brand .logo {
+    width: 100px;
+    /* Réglez la largeur de l'image selon vos préférences */
+    height: 70px;
+    /* Réglez la hauteur de l'image selon vos préférences */
+}
   </style>
 </head>
 
 <body>
+<a href="../index.html" class="brand">
+    <img src="4.png" alt=" Logo" class="logo">
+      <span class="text"><i class=""></i>EDUISLAND</span>
+    </a>
   <section class="text-center text-lg-start">
     <div class="container py-4">
       <div class="row">
@@ -142,13 +151,13 @@ if (
                 <!-- Nom input -->
                 <div class="form-outline mb-4">
                   <input type="text" id="nom" class="form-control" name="nom">
-                  <label class="form-label" for="nom">Nom</label>
+                  <label class="form-label" for="nom">Name</label>
                 </div>
 
                 <!-- Prenom input -->
                 <div class="form-outline mb-4">
                   <input type="text" id="prenom" class="form-control" name="prenom">
-                  <label class="form-label" for="prenom">Prénom</label>
+                  <label class="form-label" for="prenom">Forname</label>
                 </div>
 
                 <!-- Email input -->
@@ -169,9 +178,9 @@ if (
                   <label class="form-label" for="occupation">Occupation</label>-->
                   <label class="form-label" for="occupation">Occupation</label>
                   <select class="form-select" id="occupation" name="occupation">
-                    <option value="1">prof</option>
-                    <option value="2">Etudiant</option>
-                    <option value="3">autre</option>
+                    <option value="1">Professor</option>
+                    <option value="2">Student</option>
+                    <option value="3">Intern</option>
                 </select>
                 </div>
 

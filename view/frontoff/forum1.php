@@ -37,7 +37,7 @@ if(isset($_GET['id'])) {
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Formulaire</title>
-  <link rel="stylesheet" href="form.css">
+  <link rel="stylesheet" href="css/form.css">
 </head>
 <body>
 <div class="container">
@@ -48,16 +48,16 @@ if(isset($_GET['id'])) {
   
   <!-- Items -->
   <div class="items">
-    <a href="http://www.Home.com">Home</a>
-    <a href="http://www.Discover.com">Discover</a>
-    <a href="http://www.SpecialDeals.com">Special Deals</a>
-    <a href="http://www.contact.com">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">Discover</a>
+    <a href="cours.php">Special Deals</a>
+    <a href="contact.html">Contact</a>
     <!-- Autres items -->
   </div>
   
   <!-- Login -->
   <div class="login">
-    <button type="submit">Login</button>
+    <button type="submit" >Login</button>
     <button type="submit">Sign in</button>
   </div>
 </div>

@@ -25,12 +25,12 @@ $tab = $c->listcertif();
     <!-- SIDEBAR -->
 	<section id="sidebar">
     <<a href="../index.html" class="brand">
-      <!-- <img src="asset/img/icon.png" alt="AzulTunes Logo" class="logo">-->
-      <span class="text"><i class="fa fa-book me-3"></i>EDUISLAND</span>
+    <img src="4.png" alt=" Logo" class="logo">
+      <span class="text"><i class=""></i>EDUISLAND</span>
     </a>
 
     <ul class="side-menu top">
-            <li>
+    <li>
                 <a href="test.php">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
@@ -42,59 +42,41 @@ $tab = $c->listcertif();
                     <span class="text">Users</span>
                 </a>
             </li>
-            <li>
-                <a href="addExams.php">
+            <li  class="active">
+                <a href="listExams.php">
                     <i class='bx bxs-pie-chart-alt-2'></i>
                     <span class="text">EXAMS</span>
                 </a>
             </li>
             <li>
-                <a href="addCertif.php">
-                    <i class='bx bxs-group'></i>
-                    <span class="text">certificate</span>
-                </a>
-            </li>
-            <li>
-                <a href="backoff/index.php">
-                    <i class='bx bxs-group'></i>
-                    <span class="text">Course</span>
+                <a href="readchat.php">
+                    <i class='bx bxs-pie-chart-alt-2'></i>
+                    <span class="text">Chat</span>
                 </a>
             </li>
             
             <li>
-                <a href="#">
-                    <i class='bx bxs-bar-chart-alt-2'></i>
-                    <span class="text">Deals</span>
+                <a href="backoff/index.php">
+                    <i class='bx bxs-calendar-event'></i>
+                    <span class="text">cours</span>
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <i class='bx bxs-calendar-event'></i>
-                    <span class="text">Events</span>
-                </a>
-            </li>
-            <li class="active">
                 <a href="listreclam.php">
                     <i class='bx bxs-megaphone'></i>
                     <span class="text">Reclamation</span>
                 </a>
             </li>
-            <li >
-            <a href="backoff/add-profile.php">
-                <i class='bx bxs-dashboard'></i>
-                <span class="text">partenaire</span>
-            </a>
-        </li>
+            <li>
+                <a href="backoff/index1.php">
+                    <i class='bx bxs-bar-chart-alt-2'></i>
+                    <span class="text">Partenaire</span>
+                </a>
+            </li>
         </ul>
 <ul class="side-menu">
-    <li>
-        <a href="#">
-            <i class='bx bxs-cog'></i>
-            <span class="text">Settings</span>
-        </a>
-    </li>
-    <li>
-        <a href="#" class="logout">
+<li>
+        <a href="login.php" class="logout">
             <i class='bx bxs-log-out-circle'></i>
             <span class="text">Logout</span>
         </a>
@@ -109,31 +91,16 @@ $tab = $c->listcertif();
 		<!-- NAVBAR -->
 		<nav>
 			<i class='bx bx-menu' ></i>
-			<a href="#" class="nav-link">Categories</a>
-			<form action="#">
-				<div class="form-input">
-					<input type="search" placeholder="Search...">
-					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
-				</div>
-			</form>
-			<input type="checkbox" id="switch-mode" hidden>
-			<label for="switch-mode" class="switch-mode"></label>
-			<a href="#" class="notification">
-				<i class='bx bxs-bell' ></i>
-				<span class="num">8</span>
-			</a>
-			<a href="#" class="profile">
-				<img src="asset/img/ena">
-			</a>
+		
 		</nav>
 		<!-- NAVBAR -->
         <main>
         <div class="head-title">
 				<div class="left">
-					<h1>Collaborators</h1>
+					<h1>certif</h1>
 					<ul class="breadcrumb">
 						<li>
-							<a href="#">Dashboard</a>
+							<a href="#">certif</a>
 						</li>
 						<li><i class='bx bx-chevron-right' ></i></li>
 						<li>
@@ -141,57 +108,58 @@ $tab = $c->listcertif();
 						</li>
 					</ul>
 				</div>
-				<a href="#" class="btn-download">
-					<i class='bx bxs-cloud-download' ></i>
-					<span class="text">Download PDF</span>
+				<a href="addCertif.php" class="btn-download">
+					<span class="text">addCertif</span>
 				</a>
 			</div>
-            <div class="table-data">
-				<div class="order">
+        <div class="table-data">
+        <div class="table-data order">
 					<div class="head">
-						<h3>Add New Collab</h3>
-						<i class='bx bx-search' ></i>
-						<i class='bx bx-filter' ></i>
+						<h3>List of certif</h3>
 					</div>
-                    </script>
+            <table class="table table-hover text-center">
+                    <tbody>
+                    <table class="table" align="center">
+                    <thead>
+                        <tr>
+                            <th >Id_certif</th>
+                            <th >Id_exam</th>
+                            <th >Date</th>
+                            <th >Speciality</th>
+                            <th >Id_etudiant</th>
+                            <th ></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    foreach ($tab as $certif) {
+                    ?>
+
+                        <tr>
+                            <td><?= $certif['id_certif']; ?></td>
+                            <td><?= $certif['id_exam']; ?></td>
+                            <td><?= $certif['datee']; ?></td>
+                            <td><?= $certif['specialite']; ?></td>
+                            <td><?= $certif['id_etudiant']; ?></td>
+                           
+                            <td> 
+                                <a href="deleteCertif.php?id=<?php echo $certif['id_certif']; ?>">Delete</a>
+                            </td>
+                            <td>
+                                <form method="POST" action="updateCertif.php">
+                                    <input type="submit" name="update" value="Update"  style="display: block; margin: 20px auto 0; background-color: #007bff; color: #fff; padding: 5px 10px; font-size: 1rem; border: none; border-radius: 3px;">
+                                    <input type="hidden" value="<?php echo $certif['id_certif']; ?>" name="id_certif">
+                                </form>
+                            </td>
+                        </tr>
+                    <?php
+                    }
+                    ?>
+                </tbody>
+                    </table>
+                    </tbody>
+                </table>
+</script>
    </body>
    </html>
-<center>
-    <h1>List of Certificates</h1>
-    <h2>
-        <a href="addCertif.php">Add Certificate</a>
-    </h2>
-</center>
-<table border="1" align="center" width="70%" style="border-collapse: collapse; margin-top: 30px;">
-    <tr style="background-color: #f2f2f2;">
-        <th style="padding: 10px;">Id_certif</th>
-        <th style="padding: 10px;">Id_exam</th>
-        <th style="padding: 10px;">Date</th>
-        <th style="padding: 10px;">Speciality</th>
-        <th style="padding: 10px;">Id_etudiant</th>
-        <th style="padding: 10px;"></th>
-
-    </tr>
-
-    <?php
-    foreach ($tab as $certif) {
-    ?>
-
-        <tr style="background-color: #ffffff;">
-            <td style="padding: 10px;"><?= $certif['id_certif']; ?></td>
-            <td style="padding: 10px;"><?= $certif['id_exam']; ?></td>
-            <td style="padding: 10px;"><?= $certif['datee']; ?></td>
-            <td style="padding: 10px;"><?= $certif['specialite']; ?></td>
-            <td style="padding: 10px;"><?= $certif['id_etudiant']; ?></td>
-            <td style="padding: 10px; text-align: center;">
-                <form method="POST" action="updateCertif.php">
-                    <input type="submit" name="update" value="Update" style="padding: 5px 10px; background-color: #007bff; color: #fff; border: none; cursor: pointer;">
-                    <input type="hidden" value="<?php echo $certif['id_certif']; ?>" name="id_certif">
-                </form>
-                <a href="deleteCertif.php?id=<?php echo $certif['id_certif']; ?>" style="color: #dc3545; text-decoration: none; margin-left: 5px;">Delete</a>
-            </td>
-        </tr>
-    <?php
-    }
-    ?>
-</table>

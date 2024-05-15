@@ -256,13 +256,13 @@ if (
         <!-- SIDEBAR -->
 	<section id="sidebar">
     <a href="../index.html" class="brand">
-      <!-- <img src="asset/img/icon.png" alt="AzulTunes Logo" class="logo">-->
-      <span class="text"><i class="fa fa-book me-3"></i>EDUISLAND</span>
+       <img src="4.png" alt=" Logo" class="logo">
+      <span class="text"><i class=""></i>EDUISLAND</span>
     </a>
 
     <ul class="side-menu top">
         <ul class="side-menu top">
-            <li>
+        <li>
                 <a href="test.php">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
@@ -274,46 +274,35 @@ if (
                     <span class="text">Users</span>
                 </a>
             </li>
-            <li>
-                <a href="http://localhost/inegration(amjed,lina)/projetWEB/view/addExams.php">
+            <li  class="active">
+                <a href="listExams.php">
                     <i class='bx bxs-pie-chart-alt-2'></i>
                     <span class="text">EXAMS</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost/inegration(amjed,lina)/projetWEB/view/addCertif.php">
-                    <i class='bx bxs-group'></i>
-                    <span class="text">certificate</span>
+                <a href="readchat.php">
+                    <i class='bx bxs-pie-chart-alt-2'></i>
+                    <span class="text">Chat</span>
                 </a>
             </li>
+            
             <li>
-                <a href="backoff/index.php">
-                    <i class='indexcours'></i>
-                    <span class="text">Course</span>
-                </a>
-            </li>
-            <li>
-                <a href="backoff/add-cours.php">
-                    <i class='addcourse'></i>
-                    <span class="text">Add Course</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bxs-bar-chart-alt-2'></i>
-                    <span class="text">Deals</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
+                <a href="index.php">
                     <i class='bx bxs-calendar-event'></i>
-                    <span class="text">Events</span>
+                    <span class="text">cours</span>
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="listreclam.php">
                     <i class='bx bxs-megaphone'></i>
                     <span class="text">Reclamation</span>
+                </a>
+            </li>
+            <li>
+                <a href="backoff/index1.php">
+                    <i class='bx bxs-bar-chart-alt-2'></i>
+                    <span class="text">Partenaire</span>
                 </a>
             </li>
         </ul>
@@ -361,14 +350,14 @@ if (
         <main>
         <div class="head-title">
 				<div class="left">
-					<h1>Collaborators</h1>
+					
 					<ul class="breadcrumb">
 						<li>
-							<a href="http://localhost/inegration(amjed,lina)/projetWEB/view/updateExams.php">update</a>
+							<a href="../view/updateExams.php">EXAMS</a>
 						</li>
 						<li><i class='bx bx-chevron-right' ></i></li>
 						<li>
-							<a class="active" href="http://localhost/inegration(amjed,lina)/projetWEB/view/listExams.php">List of Exams</a>
+							<a class="active" href="../view/listExams.php">List of Exams</a>
 						</li>
 					</ul>
 				</div>
@@ -380,7 +369,7 @@ if (
             <div class="table-data">
 				<div class="order">
 					<div class="head">
-						<h3>Add New Collab</h3>
+						<h3>Add New Exam</h3>
 						<i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i>
 					</div>

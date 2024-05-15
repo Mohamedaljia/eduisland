@@ -20,8 +20,8 @@
 	<!-- SIDEBAR -->
 	<section id="sidebar">
     <a href="../index.html" class="brand">
-      <!-- <img src="asset/img/icon.png" alt="AzulTunes Logo" class="logo">-->
-      <span class="text"><i class="fa fa-book me-3"></i>EDUISLAND</span>
+       <img src="4.png" alt=" Logo" class="logo">
+      <span class="text"><i class=""></i>EDUISLAND</span>
     </a>
 
 		<ul class="side-menu top">
@@ -51,35 +51,25 @@
             </li>
             <li>
                 <a href="backoff/index.php">
-                    <i class='indexcours'></i>
+                    <i class='bx bxs-calendar-event'></i>
                     <span class="text">Course</span>
                 </a>
             </li>
             
-            <li>
-                <a href="#">
-                    <i class='bx bxs-bar-chart-alt-2'></i>
-                    <span class="text">Deals</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bxs-calendar-event'></i>
-                    <span class="text">Events</span>
-                </a>
-            </li>
-            <li  class="active">
+           
+            
+            <li  >
                 <a href="listreclam.php">
                     <i class='bx bxs-megaphone'></i>
                     <span class="text">Reclamation</span>
                 </a>
             </li>
-            <li >
-            <a href="backoff/add-profile.php">
-                <i class='bx bxs-dashboard'></i>
-                <span class="text">partenaire</span>
-            </a>
-        </li>
+            <li>
+                <a href="backoff/index1.php">
+                    <i class='bx bxs-bar-chart-alt-2'></i>
+                    <span class="text">Partenaire</span>
+                </a>
+            </li>
         </ul>
 <ul class="side-menu">
     <li>

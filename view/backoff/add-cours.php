@@ -58,48 +58,38 @@ include '../../controller/coursC.php'; // Assure-toi que le chemin vers le contr
                 </a>
             </li>
             <li>
-                <a href="../listExams.php">
+                <a href="../addExams.php">
                     <i class='bx bxs-pie-chart-alt-2'></i>
                     <span class="text">Exams</span>
                 </a>
             </li>
-            <li>
-                <a href="../listCertif.php">
-                    <i class='bx bxs-group'></i>
-                    <span class="text">certificate</span>
+            <li >
+                <a href="../readchat.php">
+                    <i class='bx bxs-pie-chart-alt-2'></i>
+                    <span class="text">Chat</span>
                 </a>
             </li>
-            <li >
+            <li class="active" >
                 <a href="index.php">
-                    <i class='bx bxs-group'></i>
+                    <i class='bx bxs-calendar-event'></i>
                     <span class="text">Courses</span>
                 </a>
             </li>
             
-            <li>
-                <a href="#">
-                    <i class='bx bxs-calendar-event'></i>
-                    <span class="text">Events</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bxs-megaphone'></i>
-                    <span class="text">Claims</span>
-                </a>
-            </li>
+           
             <li >
-                <a href="../listreclam.php">
+                <a href="../addRole.php">
                     <i class='bx bxs-megaphone'></i>
                     <span class="text">Reclamation</span>
                 </a>
             </li>
-            <li >
-            <a href="add-profile.php">
-                <i class='bx bxs-dashboard'></i>
-                <span class="text">partenaire</span>
-            </a>
-        </li>
+           
+            <li>
+                <a href="index1.php">
+                    <i class='bx bxs-bar-chart-alt-2'></i>
+                    <span class="text">Partenaire</span>
+                </a>
+            </li>
     </ul>
 <ul class="side-menu">
 <li>

@@ -51,114 +51,7 @@ if (
     <link rel="stylesheet" href="asset/css/add.css">
    
 	<title>AdminHub</title>
-    <style>
-        /*body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }*/
-
-        /*#content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }*/
-
-        form {
-            width: 400px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        select {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        input[type="submit"],
-        input[type="reset"] {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        input[type="submit"]:hover,
-        input[type="reset"]:hover {
-            background-color: #0056b3;
-        }
-
-        .error {
-            color: red;
-            margin-top: 10px;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #333;
-            padding: 10px;
-            color: #fff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-link {
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .form-input {
-            display: flex;
-            align-items: center;
-        }
-
-        .form-input input[type="search"] {
-            width: 70%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        .form-input button {
-            width: 30%;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .form-input button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+   
 </head>
 <body>
 <div id="overlay"></div>
@@ -171,7 +64,7 @@ if (
     </a>
 
 <ul class="side-menu top">
-            <li>
+<li>
                 <a href="test.php">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
@@ -183,62 +76,45 @@ if (
                     <span class="text">Users</span>
                 </a>
             </li>
-            <li>
-                <a href="http://localhost/inegration(amjed,lina)/projetWEB/view/addExams.php">
+            <li class="active">
+                <a href="listExams.php">
                     <i class='bx bxs-pie-chart-alt-2'></i>
                     <span class="text">EXAMS</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost/inegration(amjed,lina)/projetWEB/view/addCertif.php">
-                    <i class='bx bxs-group'></i>
-                    <span class="text">certificate</span>
+                <a href="readchat.php">
+                    <i class='bx bxs-pie-chart-alt-2'></i>
+                    <span class="text">Chat</span>
                 </a>
             </li>
+            
             <li>
                 <a href="backoff/index.php">
-                    <i class='indexcours'></i>
-                    <span class="text">Course</span>
-                </a>
-            </li>
-            <li>
-                <a href="backoff/add-cours.php">
-                    <i class='addcourse'></i>
-                    <span class="text">Add Course</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bxs-bar-chart-alt-2'></i>
-                    <span class="text">Deals</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
                     <i class='bx bxs-calendar-event'></i>
-                    <span class="text">Events</span>
+                    <span class="text">cours</span>
                 </a>
             </li>
-            <li class="active">
+            <li >
                 <a href="listreclam.php">
                     <i class='bx bxs-megaphone'></i>
                     <span class="text">Reclamation</span>
                 </a>
             </li>
+            <li>
+                <a href="backoff/index1.php">
+                    <i class='bx bxs-bar-chart-alt-2'></i>
+                    <span class="text">Partenaire</span>
+                </a>
+            </li>
         </ul>
 <ul class="side-menu">
 <li>
-    <a href="#">
-        <i class='bx bxs-cog'></i>
-        <span class="text">Settings</span>
-    </a>
-</li>
-<li>
-    <a href="#" class="logout">
-        <i class='bx bxs-log-out-circle'></i>
-        <span class="text">Logout</span>
-    </a>
-</li>
+        <a href="login.php" class="logout">
+            <i class='bx bxs-log-out-circle'></i>
+            <span class="text">Logout</span>
+        </a>
+    </li>
 </ul>
 
 </section>
@@ -251,22 +127,7 @@ if (
     <!-- NAVBAR -->
     <nav>
         <i class='bx bx-menu' ></i>
-        <a href="#" class="nav-link">Categories</a>
-        <form action="#">
-            <div class="form-input">
-                <input type="search" placeholder="Search...">
-                <button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
-            </div>
-        </form>
-        <input type="checkbox" id="switch-mode" hidden>
-        <label for="switch-mode" class="switch-mode"></label>
-        <a href="#" class="notification">
-            <i class='bx bxs-bell' ></i>
-            <span class="num">8</span>
-        </a>
-        <a href="#" class="profile">
-            <img src="asset/img/ena">
-        </a>
+    
     </nav>
     <!-- NAVBAR -->
 
@@ -274,75 +135,79 @@ if (
     <main>
     <div class="head-title">
             <div class="left">
-                <h1>Collaborators</h1>
+                <h1>Certif</h1>
                 <ul class="breadcrumb">
                     <li>
-                        <a href="#">Dashboard</a>
+                        <a href="#">update certif</a>
                     </li>
                     <li><i class='bx bx-chevron-right' ></i></li>
                     <li>
                         <a class="active" href="#">Home</a>
                     </li>
                 </ul>
-                <div class="table-data">    
+            </div>
+    </div>
+        <div class="table-data"  style="margin: auto; width: 50%; text-align: left;">    
             <div class="order">
                 <div class="head">
-                    <h3>formule de certeficat</h3>
+                    <h3> certeficat update</h3>
                     <i class='bx bx-search' ></i>
                     <i class='bx bx-filter' ></i>
                 </div>
-    <button><a href="listCertif.php">Back to list</a></button>
-    <hr>
+    
+    <div class="container">
 
-    <div id="error">
-        <?php echo $error; ?>
-    </div>
-
-    <?php
-    if (isset($_POST['id_certif'])) {
-        $certif = $certifC->showcertif($_POST['id_certif']);
-    ?>
+        <?php
+        if (isset($_POST['id_certif'])) {
+            $certif = $certifC->showcertif($_POST['id_certif']);
+        ?>
         <form action="" method="POST">
-            <table>
-                <tr>
-                    <td><label for="id_certif">Id :</label></td>
-                    <td>
-                        <input type="text" id="id_certif" name="id_certif" value="<?php echo $certif['id_certif']; ?>" readonly />
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="id_exam">Id_exam :</label></td>
-                    <td>
-                        <input type="text" id="id_exam" name="id_exam" value="<?php echo $certif['id_exam']; ?>" readonly />
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="datee">date :</label></td>
-                    <td>
-                        <input type="text" id="datee" name="datee" value="<?php echo $certif['datee']; ?>" />
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="specialite">specialite :</label></td>
-                    <td>
-                        <input type="text" id="nom" name="nom" value="<?php echo $certif['specialite']; ?>" />
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="id_etudiant">id_etudiant :</label></td>
-                    <td>
-                        <input type="text" id="prenom" name="prenom" value="<?php echo $certif['id_etudiant']; ?>" />
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <input type="submit" value="Save">
-                    </td>
-                </tr>
-            </table>
+
+             <div class="mb-3">
+
+                   <label for="id_certif">Id :</label>
+                    
+                        <input type="text" id="id_certif" name="id_certif" value="<?php echo $certif['id_certif']; ?>" style="margin-left: auto; margin-right: auto; display: block;">
+                    
+                 </div>
+                <div class="mb-3">
+
+                    <label for="id_exam">Id_exam :</label>
+                   
+                        <input type="text" id="id_exam" name="id_exam" value="<?php echo $certif['id_exam']; ?>" style="margin-left: auto; margin-right: auto; display: block;">
+                    
+                 </div>
+                <div class="mb-3">
+
+                   <label for="datee">date :</label>
+                   
+                        <input type="text" id="datee" name="datee" value="<?php echo $certif['datee']; ?>" style="margin-left: auto; margin-right: auto; display: block;">
+                    
+                 </div>
+                <div class="mb-3">
+
+                    <label for="specialite">specialite :</label>
+                  
+                        <input type="text" id="nom" name="nom" value="<?php echo $certif['specialite']; ?>" style="margin-left: auto; margin-right: auto; display: block;">
+                    
+                </div>
+                <div class="mb-3">
+
+                   <label for="id_etudiant">id_etudiant :</label>
+                    
+                        <input type="text" id="prenom" name="prenom" value="<?php echo $certif['id_etudiant']; ?>" style="margin-left: auto; margin-right: auto; display: block;">
+                    
+                 </div>
+                <div class="mb-3">
+                    <input type="submit" value="Save" style="display: block; margin: 20px auto 0; background-color: #007bff; color: #fff; padding: 10px 20px; font-size: 1.2rem; border: none; border-radius: 5px;">                  
+                 </div>
+         
         </form>
     <?php
     }
     ?>
+    </div>
+    </div>
+    </div>
 </body>
 </html>

@@ -541,3 +541,10 @@ th {
     background-color: #00a2ff;
     /* Bleu ciel plus foncé au survol */
 }
+
+.brand .logo {
+    width: 100px;
+    /* Réglez la largeur de l'image selon vos préférences */
+    height: 70px;
+    /* Réglez la hauteur de l'image selon vos préférences */
+}

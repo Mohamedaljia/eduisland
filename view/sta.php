@@ -58,43 +58,33 @@
             <li>
                 <a href="#">
                     <i class='bx bxs-pie-chart-alt-2'></i>
-                    <span class="text">Forum</span>
+                    <span class="text">Exams</span>
                 </a>
             </li>
             <li>
                 <a href="add-collab.php">
                     <i class='bx bxs-group'></i>
-                    <span class="text">Collaborators</span>
+                    <span class="text">Certificate</span>
                 </a>
             </li>
             <li>
                 <a href="backoff/index.php">
-                    <i class='indexcours'></i>
+                    <i class='bx bxs-calendar-event'></i>
                     <span class="text">Course</span>
                 </a>
             </li>
-            <li>
-                <a href="backoff/add-cours.php">
-                    <i class='addcourse'></i>
-                    <span class="text">Add Course</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bxs-bar-chart-alt-2'></i>
-                    <span class="text">Deals</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bxs-calendar-event'></i>
-                    <span class="text">Events</span>
-                </a>
-            </li>
+          
+           
             <li class="active">
                 <a href="listreclam.php">
                     <i class='bx bxs-megaphone'></i>
                     <span class="text">Reclamation</span>
+                </a>
+            </li>
+            <li>
+                <a href="backoff/index1.php">
+                    <i class='bx bxs-bar-chart-alt-2'></i>
+                    <span class="text">Partenaire</span>
                 </a>
             </li>
         </ul>

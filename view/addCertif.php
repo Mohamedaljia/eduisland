@@ -87,130 +87,7 @@ $c = $certifC->afficherExam();
     <link rel="stylesheet" href="asset/css/add.css">
    
 	<title>AdminHub</title>
-    <style>
-        /*body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }*/
-
-        /*#content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }*/
-
-        form {
-            width: 400px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        select {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        input[type="submit"],
-        input[type="reset"] {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        input[type="submit"]:hover,
-        input[type="reset"]:hover {
-            background-color: #0056b3;
-        }
-
-        /* Error message styling */
-        /* Error message styling */
-        #error {
-            color: #ff0000; /* Red */
-            margin-bottom: 10px;
-        }
-
-        /* Logo styling */
-        .logo {
-            max-width: 150px;
-            margin-bottom: 10px;
-        }
-
-        /* Name styling */
-        .name {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #333;
-            padding: 10px;
-            color: #fff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-link {
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .form-input {
-            display: flex;
-            align-items: center;
-        }
-
-        .form-input input[type="search"] {
-            width: 70%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        .form-input button {
-            width: 30%;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .form-input button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+   
 </head>
 <body>
 <div id="overlay"></div>
@@ -218,12 +95,12 @@ $c = $certifC->afficherExam();
 	<!-- SIDEBAR -->
 	<section id="sidebar">
     <a href="../index.html" class="brand">
-      <!-- <img src="asset/img/icon.png" alt="AzulTunes Logo" class="logo">-->
-      <span class="text"><i class="fa fa-book me-3"></i>EDUISLAND</span>
+      <<img src="4.png" alt=" Logo" class="logo">
+      <span class="text"><i class=""></i>EDUISLAND</span>
     </a>
 
     <ul class="side-menu top">
-            <li>
+    <li>
                 <a href="test.php">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
@@ -235,43 +112,31 @@ $c = $certifC->afficherExam();
                     <span class="text">Users</span>
                 </a>
             </li>
-            <li>
-                <a href="http://localhost/inegration(amjed,lina)/projetWEB/view/addExams.php">
+            <li class="active">
+                <a href="listExams.php">
                     <i class='bx bxs-pie-chart-alt-2'></i>
                     <span class="text">EXAMS</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost/inegration(amjed,lina)/projetWEB/view/addCertif.php">
-                    <i class='bx bxs-group'></i>
-                    <span class="text">certificate</span>
-                </a>
-            </li>
-            <li>
-                <a href="backoff/index.php">
-                    <i class='indexcours'></i>
-                    <span class="text">Course</span>
-                </a>
-            </li>
-            <li>
-                <a href="backoff/add-cours.php">
-                    <i class='addcours'></i>
-                    <span class="text">Add Course</span>
+                <a href="readchat.php">
+                    <i class='bx bxs-pie-chart-alt-2'></i>
+                    <span class="text">Chat</span>
                 </a>
             </li>
             <li>
                 <a href="#">
                     <i class='bx bxs-bar-chart-alt-2'></i>
-                    <span class="text">Deals</span>
+                    <span class="text">Partenaire</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="index.php">
                     <i class='bx bxs-calendar-event'></i>
-                    <span class="text">Events</span>
+                    <span class="text">cours</span>
                 </a>
             </li>
-            <li class="active">
+            <li >
                 <a href="listreclam.php">
                     <i class='bx bxs-megaphone'></i>
                     <span class="text">Reclamation</span>
@@ -280,13 +145,7 @@ $c = $certifC->afficherExam();
         </ul>
 <ul class="side-menu">
     <li>
-        <a href="#">
-            <i class='bx bxs-cog'></i>
-            <span class="text">Settings</span>
-        </a>
-    </li>
-    <li>
-        <a href="#" class="logout">
+        <a href="login.php" class="logout">
             <i class='bx bxs-log-out-circle'></i>
             <span class="text">Logout</span>
         </a>
@@ -303,22 +162,7 @@ $c = $certifC->afficherExam();
 		<!-- NAVBAR -->
 		<nav>
 			<i class='bx bx-menu' ></i>
-			<a href="#" class="nav-link">Categories</a>
-			<form action="#">
-				<div class="form-input">
-					<input type="search" placeholder="Search...">
-					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
-				</div>
-			</form>
-			<input type="checkbox" id="switch-mode" hidden>
-			<label for="switch-mode" class="switch-mode"></label>
-			<a href="#" class="notification">
-				<i class='bx bxs-bell' ></i>
-				<span class="num">8</span>
-			</a>
-			<a href="#" class="profile">
-				<img src="asset/img/ena">
-			</a>
+			
 		</nav>
 		<!-- NAVBAR -->
 
@@ -326,70 +170,56 @@ $c = $certifC->afficherExam();
         <main>
         <div class="head-title">
 				<div class="left">
-					<h1>Collaborators</h1>
+					<h1>certif</h1>
 					<ul class="breadcrumb">
 						<li>
-							<a href="#">Dashboard</a>
+							<a href="#">add new certif</a>
 						</li>
 						<li><i class='bx bx-chevron-right' ></i></li>
 						<li>
-							<a class="active" href="http://localhost/inegration(amjed,lina)/projetWEB/view/listCertif.php">List</a>
+							<a class="active" href="listCertif.php">List of certif</a>
 						</li>
 					</ul>
-                    <div class="table-data">    
-				<div class="order">
+                </div>
+            <div class="table-data">    
+			<div class="order">
 					<div class="head">
-						<h3>formule de certeficat</h3>
+						<h3>Add New certeficat</h3>
 						<i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i>
-					</div>
-      
-
-                    <div class="name">EDUISLAND</div>    
-                    <form action="" method="POST" id="examsForm" enctype="multipart/form-data">
-                    <table>
-                            <tr>
-                            <td><label for="id_certif">Id_certif:</label>
-                                <input type="text" id="id_certif" name="id_certif" />
-                                </td>
-                                </tr>
+					</div>   
+                <form action="" method="POST" id="examsForm">
+                        <div class="mb-3">
+                           <label for="id_certif">Id_certif:</label>
+                            <input type="text" id="id_certif" name="id_certif" style="margin-left: auto; margin-right: auto; display: block;">
+                                
+                        </div>
             
-                            <tr>        
+                        <div class="mb-3">      
                             <td> <label for="id_exam">Id_exam:</label>
-                            <select name="id_exam" id="id_exam">
-                    <?php foreach ($c as $exams) { ?>
-                        <option value="<?php echo $exams['id']; ?>"><?php echo $exams['id']; ?></option>
-                    <?php } ?>
-                </select>
-                </td>    </tr>
+                            <select name="id_exam" id="id_exam" style="margin-left: auto; margin-right: auto; display: block;">
+                            <?php foreach ($c as $exams) { ?>
+                                <option value="<?php echo $exams['id']; ?>"><?php echo $exams['id']; ?></option>
+                            <?php } ?>
+                            </select>
+                        </div>
                         
-                <tr>
-               <td> <label for="specialite">Specialite:</label>
-                <input type="text" id="specialite" name="specialite" />
-                </td>
-                </tr>
-           
-                <tr>
-               <td>
-                <label for="id_etudiant">Id_etudiant:</label>
-                <input type="text" id="id_etudiant" name="id_etudiant" />
-                </td>
-                </tr>
-            
-                <tr>
-               <td>
-                <label for="datee">Date:</label>
-                <input type="text" id="datee" name="datee" />
-                </td>
-                </tr>
-            
-                <tr>
-               <td>
-                <input type="submit" value="Save">
-                <input type="reset" value="Reset">
-                </td>
-                </tr>
-        </form>
+                        <div class="mb-3">  
+                            <label for="specialite">Specialite:</label>
+                            <input type="text" id="specialite" name="specialite" style="margin-left: auto; margin-right: auto; display: block;">
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_etudiant">Id_etudiant:</label>
+                            <input type="text" id="id_etudiant" name="id_etudiant" style="margin-left: auto; margin-right: auto; display: block;">
+                        </div>
+                        <div class="mb-3">
+                            <label for="datee">Date:</label>
+                            <input type="text" id="datee" name="datee" style="margin-left: auto; margin-right: auto; display: block;">
+                        </div>                                                
+                            <input type="submit" value="Save"  style="display: block; margin: 20px auto 0; background-color: #007bff; color: #fff; padding: 10px 20px; font-size: 1.2rem; border: none; border-radius: 5px;">
+                            <input type="reset" value="Reset"  style="display: block; margin: 20px auto 0; background-color: #007bff; color: #fff; padding: 10px 20px; font-size: 1.2rem; border: none; border-radius: 5px;">
+                            
+                    </form>
    
 </div>
     <script>

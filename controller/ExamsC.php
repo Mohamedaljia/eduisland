@@ -1,6 +1,6 @@
 <?php
 
-include '../config1.php';
+require '../config1.php';
 
 
 
